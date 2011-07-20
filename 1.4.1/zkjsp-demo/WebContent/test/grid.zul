@@ -1,0 +1,10 @@
+<?page id="P"?>
+<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
+<n:body>
+	<grid width="100px">
+		<columns menupopup="auto">
+			<column label="Author" />
+		</columns>
+	</grid>
+</n:body>
+</zk>
