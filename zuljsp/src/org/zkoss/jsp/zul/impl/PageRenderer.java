@@ -27,7 +27,9 @@ import org.zkoss.zk.ui.Page;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.sys.ComponentCtrl;
 import org.zkoss.zk.ui.sys.HtmlPageRenders;
+import org.zkoss.zk.ui.sys.PageCtrl;
 import org.zkoss.zk.ui.WebApp;
+import org.zkoss.lang.Classes;
 import org.zkoss.util.Utils;
 import org.zkoss.zk.ui.sys.SEORenderer;
 
@@ -38,6 +40,25 @@ import org.zkoss.zk.ui.sys.SEORenderer;
  * @since 1.4.0
  */
 public class PageRenderer implements org.zkoss.zk.ui.sys.PageRenderer {
+	private final boolean _SEORenderReady, _SEOContentReady;
+	public PageRenderer() {
+		boolean seor, seoc;
+		try {
+			Classes.forNameByThread("SEORenderer");
+			seor = true;
+		} catch (Exception e) {
+			seor = false;
+		}
+		try {
+			Class[] param = {Page.class, Writer.class};
+			HtmlPageRenders.class.getMethod("outSEOContent", param);
+			seoc = true;
+		} catch (Exception e) {
+			seoc = false;
+		}
+		_SEORenderReady = seor;
+		_SEOContentReady = seoc;
+	}
 	public void render(Page page, Writer out) throws IOException {
 		final Execution exec = Executions.getCurrent();
 		final Desktop desktop = exec.getDesktop();
@@ -73,16 +94,21 @@ public class PageRenderer implements org.zkoss.zk.ui.sys.PageRenderer {
 			if (!(comp instanceof Inline)) {
 				out.write("<div");
 				writeAttr(out, "id", comp.getUuid());
-				out.write(">");
+				out.write(" class=\"z-temp\">");
+
 				if (page != null) {
-					final WebApp wapp = page.getDesktop().getWebApp();
-					String currentVersion = wapp.getVersion();
-					if (Utils.compareVersion(Utils.parseVersion(currentVersion),
-							Utils.parseVersion("5.0.7")) > -1) {
-						SEORenderer[] seos = wapp
-							.getConfiguration().getSEORenderers();
-						for (int i = 0;i < seos.length;i ++) {
-							(seos[i]).render(page, out);
+					if (_SEOContentReady)
+						 HtmlPageRenders.outSEOContent(page, out);
+					else if (_SEORenderReady && ((PageCtrl)page).getOwner() == null) {
+						final WebApp wapp = page.getDesktop().getWebApp();
+						String currentVersion = wapp.getVersion();
+						if (Utils.compareVersion(Utils.parseVersion(currentVersion),
+								Utils.parseVersion("5.0.7")) > -1) {
+							SEORenderer[] seos = wapp
+								.getConfiguration().getSEORenderers();
+							for (int i = 0;i < seos.length;i ++) {
+								(seos[i]).render(page, out);
+							}
 						}
 					}
 				}
