@@ -98,9 +98,10 @@ public class PageRenderer implements org.zkoss.zk.ui.sys.PageRenderer {
 
 				if (page != null) {
 					// use HtmlPageRenders.outSEOContent if it is ready
-					if (_SEOContentReady)
+					// or use SEORenderer if it is ready
+					if (_SEOContentReady) {
 						 HtmlPageRenders.outSEOContent(page, out);
-					// or use 
+					}
 					else if (_SEORenderReady && ((PageCtrl)page).getOwner() == null) {
 						final WebApp wapp = page.getDesktop().getWebApp();
 						SEORenderer[] seos = wapp
