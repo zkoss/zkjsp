@@ -44,7 +44,7 @@ public class PageRenderer implements org.zkoss.zk.ui.sys.PageRenderer {
 	public PageRenderer() {
 		boolean seor, seoc;
 		try {
-			Classes.forNameByThread("SEORenderer");
+			Classes.forNameByThread("org.zkoss.zk.ui.sys.SEORenderer");
 			seor = true;
 		} catch (Exception e) {
 			seor = false;
@@ -97,18 +97,17 @@ public class PageRenderer implements org.zkoss.zk.ui.sys.PageRenderer {
 				out.write(" class=\"z-temp\">");
 
 				if (page != null) {
+					// use HtmlPageRenders.outSEOContent if it is ready
 					if (_SEOContentReady)
 						 HtmlPageRenders.outSEOContent(page, out);
+					// or use 
 					else if (_SEORenderReady && ((PageCtrl)page).getOwner() == null) {
 						final WebApp wapp = page.getDesktop().getWebApp();
 						String currentVersion = wapp.getVersion();
-						if (Utils.compareVersion(Utils.parseVersion(currentVersion),
-								Utils.parseVersion("5.0.7")) > -1) {
-							SEORenderer[] seos = wapp
-								.getConfiguration().getSEORenderers();
-							for (int i = 0;i < seos.length;i ++) {
-								(seos[i]).render(page, out);
-							}
+						SEORenderer[] seos = wapp
+							.getConfiguration().getSEORenderers();
+						for (int i = 0;i < seos.length;i ++) {
+							(seos[i]).render(page, out);
 						}
 					}
 				}
