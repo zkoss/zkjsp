@@ -103,7 +103,6 @@ public class PageRenderer implements org.zkoss.zk.ui.sys.PageRenderer {
 					// or use 
 					else if (_SEORenderReady && ((PageCtrl)page).getOwner() == null) {
 						final WebApp wapp = page.getDesktop().getWebApp();
-						String currentVersion = wapp.getVersion();
 						SEORenderer[] seos = wapp
 							.getConfiguration().getSEORenderers();
 						for (int i = 0;i < seos.length;i ++) {
