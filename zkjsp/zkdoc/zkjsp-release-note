@@ -1,10 +1,20 @@
 	--------
+JSP Tags 2.0
+* Features:
+
+* Bugs:  
+
+* Upgrade Notes:
+
+	--------
 JSP Tags 1.7
 * Features:
 
 * Bugs:  
 
 * Upgrade Notes:
+	+ This is the first version that compatible with the SEO Renderer of ZK 5.0.9.
+	+ This is the last version that compatible with zk5 or previous versions.
 
 	--------
 JSP Tags 1.6
