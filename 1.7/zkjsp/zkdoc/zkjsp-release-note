@@ -1,0 +1,99 @@
+	--------
+JSP Tags 1.7
+* Features:
+
+* Bugs:  
+
+* Upgrade Notes:
+	+ This is the first version that compatible with the SEO Renderer of ZK 5.0.9.
+	+ This is the last version that compatible with zk5 or previous versions.
+
+	--------
+JSP Tags 1.6
+* Features:
+	3290092: Allow SEORenderer to be a application-level listener
+	3259969: Support system-level initiator
+* Bugs:  
+	3301322: The impl of LeafTag didn't handle composer well
+	3301371: NPE while page has no content in ZK JSP
+* Upgrade Notes:
+	--------
+	
+JSP Tags 1.5
+March 9, 2011
+* Features:
+	3292966: Add Doublespinner to ZK JSP
+	3292967: Add ZK Spreadsheet to ZK JSP
+	3292968: Add ZK Calendar to ZK JSP
+	3292971: Add fusionchart to ZK JSP
+* Bugs:
+	3292974: ZK JSP cannot start with Jboss 6
+* Upgrade Notes:
+
+	--------
+JSP Tags 1.4.1
+* Features:
+	3007898: Add flashchar tag to ZK JSP
+* Bugs:  
+* Upgrade Notes:
+
+	--------
+JSP Tags 1.4.0
+* Features:
+  2873855: ZK JSP supports ZK 5.0
+
+* Bugs:
+  2487408: JSP doesn't handle i3label properties.
+  2922731: Exception happen while hot code replacement of ZKJSP project which Using zk package 3.6.3
+  2984401: unable to set focus initialling
+  
+* Upgrade Notes:
+  + It supports ZK 3.6 an later, but not ealier version
+
+	--------
+JSP Tags 1.3.0
+* Features:
+  2027663: JSP: A way to generate JS and CSS inside <HEAD>
+  2173627: A way to specify where to gen ZK tags in JSP (incl zul)
+* Bugs:
+  
+* Upgrade Notes:
+  
+	--------
+JSP Tags 1.2.0
+* Features:
+  1937274: Make JspTags support EL in both JSP2.0 and 2.1
+  1937276: Make JspTags Support variable-resolver directive
+  1937280: Make JspTags support "zscript" in init directive
+  1937290: Make JspTags support "variables" tag
+  
+* Bugs:
+  1820771: Make ZK independent of JSP
+  
+* Upgrade Notes:
+
+	--------
+JSP Tags 1.1.0
+* Features:
+  1831546: Make JspTags support Macro & inline Macro component.
+  1831541: Make JspTags support custom component tag page definition
+  1831537: Make JspTags support ZK apply, composer feature
+  1831535: Make JspTags support InitiatorExt  
+  1819703: Make JspTags support borderlayout, north, auxhead and others
+  1804593: Make JspTags support Forward Property
+* Bugs:
+  1820771: Make ZK independent of JSP
+  
+* Upgrade Notes:
+
+	--------
+JSP Tags 0.9.0
+* Features:
+  1491754: Provide JSP tags that wraps ZUL components, such that developers could use ZUL components directly in JSP pages.
+
+* Bugs:
+
+* Upgrade Notes:
+
+
+
