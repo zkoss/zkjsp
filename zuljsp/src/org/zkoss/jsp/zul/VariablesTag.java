@@ -54,9 +54,9 @@ public class VariablesTag extends AbstractTag implements DynamicAttributes {
 			final String name = (String)me.getKey();
 			final Object value = me.getValue();
 			if(_branchTag!=null)
-				_branchTag.getComponent().setVariable(name, value, local);
+				_branchTag.getComponent().setAttribute(name, value, local);
 			else 
-				_pageTag.getPage().setVariable(name, value);
+				_pageTag.getPage().setAttribute(name, value);
 		}
 	}
 	

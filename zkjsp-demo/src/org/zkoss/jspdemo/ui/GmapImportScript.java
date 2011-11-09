@@ -27,8 +27,6 @@ public class GmapImportScript extends Script implements AfterCompose {
 		if (gmapKey!=null)
 		{			
 			
-			if(org.zkoss.zk.Version.UID.valueOf(0) == "3")
-				this.setSrc("http://maps.google.com/maps?file=api&v=2&key="+gmapKey);//for zk3
 			this.setContent("zk.googleAPIkey='"+gmapKey+"'");//for zk 5
 			this.setType("text/javascript");
 		}
