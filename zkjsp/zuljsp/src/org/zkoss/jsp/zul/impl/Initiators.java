@@ -125,7 +125,7 @@ public class Initiators{
 				if (comps == null) comps = new Component[0];
 				((InitiatorExt)init).doAfterCompose(page, comps);
 			} else {
-				init.doAfterCompose(page);
+				((InitiatorExt)init).doAfterCompose(page, comps);
 			}
 		}
 		Initiator init;
@@ -135,7 +135,7 @@ public class Initiators{
 				if (comps == null) comps = new Component[0];
 				((InitiatorExt)init).doAfterCompose(page, comps);
 			} else 
-				init.doAfterCompose(page);
+				((InitiatorExt)init).doAfterCompose(page, comps);
 		}
 	}
 	/** Invokes {@link Initiator#doCatch}.
@@ -146,7 +146,7 @@ public class Initiators{
 		for (int j = 0; j < _sysinits.length; ++j) {
 			final Initiator init = _sysinits[j];
 			try {
-				init.doCatch(t);
+				((InitiatorExt)init).doCatch(t);
 			} catch (Throwable ex) {
 				log.error(ex);
 			}
@@ -154,7 +154,7 @@ public class Initiators{
 		for (Iterator it = _inits.iterator(); it.hasNext();) {
 			final Initiator init = ((Initiator)((Object[])it.next())[0]);
 			try {
-				init.doCatch(t);
+				((InitiatorExt)init).doCatch(t);
 			} catch (Throwable ex) {
 				log.error(ex);
 			}
@@ -167,7 +167,7 @@ public class Initiators{
 		for (int j = 0; j < _sysinits.length; ++j) {
 			final Initiator init = _sysinits[j];
 			try {
-				init.doFinally();
+				((InitiatorExt)init).doFinally();
 			} catch (Throwable ex) {
 				log.error(ex);
 				if (t == null) t = ex;
@@ -176,7 +176,7 @@ public class Initiators{
 		for (Iterator it = _inits.iterator(); it.hasNext();) {
 			final Initiator init = ((Initiator)((Object[])it.next())[0]);
 			try {
-				init.doFinally();
+				((InitiatorExt)init).doFinally();
 			} catch (Throwable ex) {
 				log.error(ex);
 				if (t == null) t = ex;

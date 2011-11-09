@@ -27,7 +27,6 @@ import org.zkoss.zk.ui.Page;
 import org.zkoss.zk.ui.util.ConditionImpl;
 import org.zkoss.zk.xel.Evaluator;
 import org.zkoss.zk.xel.ExValue;
-import org.zkoss.zk.xel.impl.EvaluatorRef;
 
 /**
  * @author Ian Tsai

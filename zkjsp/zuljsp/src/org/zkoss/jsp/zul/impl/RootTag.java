@@ -341,9 +341,9 @@ abstract public class RootTag extends AbstractTag {
 	 * @param zs A ZScript object.
 	 * @throws IOException  
 	 */
-	public void processZScript(Component parent, ZScript zs) 
+	public void processZScript(Component parent, ZScript zs, boolean isDeferred) 
 	throws IOException {
-		processZScript(_page, parent, zs);
+		processZScript(_page, parent, zs, isDeferred);
 	}
 
 	/**
@@ -353,12 +353,12 @@ abstract public class RootTag extends AbstractTag {
 	 * @param zs A ZScript object.
 	 * @throws IOException
 	 */
-	public static void processZScript(Page page, Component parent, ZScript zs) 
+	public static void processZScript(Page page, Component parent, ZScript zs, boolean isDeferred) 
 	throws IOException {
 		if (zs.getLanguage() == null)
 			zs.setLanguage(page.getZScriptLanguage());
 		
-		if (zs.isDeferred())
+		if (isDeferred)
 			((PageCtrl)page).addDeferredZScript(parent, zs);
 		else
 			ZkProxy.getProxy().interpret(page, parent, zs);

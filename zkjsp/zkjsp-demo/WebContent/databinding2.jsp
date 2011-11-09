@@ -36,7 +36,7 @@ request.setAttribute("my_list",my_list);// use Request to store and pass data.
 <z:zscript>
 	System.out.println("fire when load page..." );
 	my_list = requestScope.get("my_list");// get data from request and declare page variable "my_list" implicitly.
-	page.setVariable("my_list", my_list);
+	page.setAttribute("my_list", my_list);
 	String main_name = "test Variable";
 	
 	System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>"+my_list.get(0).getDate());
@@ -51,7 +51,7 @@ request.setAttribute("my_list",my_list);// use Request to store and pass data.
 	</z:button>
 			<z:zscript>
 			cancelBtn.setLabel(main_name);
-			//System.out.println(page.getVariable("main_name"));
+			//System.out.println(page.getAttribute("main_name"));
 		</z:zscript>
 </z:caption>
 	<%-- same as original ZK databinding...--%>

@@ -31,6 +31,8 @@ import org.zkoss.jsp.zul.impl.BranchTag;
 import org.zkoss.jsp.zul.impl.Jsps;
 import org.zkoss.jsp.zul.impl.RootTag;
 import org.zkoss.util.logging.Log;
+import org.zkoss.util.resource.ClassLocator;
+import org.zkoss.web.util.resource.ServletContextLocator;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.metainfo.ZScript;
@@ -71,15 +73,15 @@ public class ZScriptTag extends AbstractTag {
 			
 			StringWriter out = new StringWriter();
 			getJspBody().invoke(out);
-			zscript = new ZScript(null, lang,out.toString() ,null);
+			zscript = new ZScript(lang,out.toString());
 		}
 		else 
 		{
 			PageContext pgctx = Jsps.getPageContext(getJspContext());
 			URL url = pgctx.getServletContext().getResource(_src);
-			zscript = new ZScript(null, lang, url, null);
+			zscript = new ZScript(lang, url);
 		}
-		_roottag.processZScript(_parent, zscript);
+		_roottag.processZScript(_parent, zscript, isDeferred());
 	}
 
 	

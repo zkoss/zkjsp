@@ -215,7 +215,7 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 			// test if this attribute is an annotation...
 			if (isAnnotation(attval)) { //annotation
 				AnnotationHelper helper = new AnnotationHelper();
-				helper.addByCompoundValue(attval.substring(2, attval.length() -1));
+				helper.addByCompoundValue(attval);
 				helper.applyAnnotations(target, 
 						"self".equals(attnm) ? null: attnm, true);
 			}
@@ -306,7 +306,7 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 			Map.Entry entry = (Map.Entry)itor.next();
 			final ZScript zscript = ZScript.parseContent((String)entry.getValue());
 			((ComponentCtrl)_comp).addEventHandler(
-					(String)entry.getKey(), new EventHandler(zscript,null));
+					(String)entry.getKey(), new EventHandler(zscript));
 		}
 		
 		//fire onCreate event...

@@ -19,7 +19,7 @@ Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 package org.zkoss.jspdemo;
 
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zkex.zul.West;
+import org.zkoss.zul.West;
 
 /**
  * @author ian

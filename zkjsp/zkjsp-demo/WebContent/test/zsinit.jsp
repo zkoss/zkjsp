@@ -16,7 +16,7 @@
 		<z:window title="Macro Window">
 			<z:label value="change name"/>
 		</z:window>
-		<z:button label="change title" 
+		<z:button label="change self label" 
 			onClick='self.setLabel("person is:"+person.firstName+" "+person.lastName)'/>
 	</z:page>
 </body>

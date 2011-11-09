@@ -50,7 +50,7 @@ public class ZkProxy {
 				Classes.forNameByThread("org.zkoss.zk.ui.sys.PageRenderer");
 				_proxy = newProxy5();
 			} catch (ClassNotFoundException ex) {
-				_proxy = newProxy3();
+				ex.printStackTrace();
 			}
 		}
 		return _proxy;
@@ -153,65 +153,6 @@ public class ZkProxy {
 			}		
 			public Inline newInline(String txt){
 				return new Zk5Inline(txt);				
-			}
-		};
-	}
-	/**
-	 * 
-	 * @return A proxy instance for zk3 and previous version.
-	 */
-	private static Proxy newProxy3() {
-		return new Proxy() {
-			/** @deprecated */
-			public void interpret(Page page, Component comp, ZScript zs) {
-				final Map backup = new HashMap();
-				final org.zkoss.zk.scripting.Namespace ns = comp != null ?
-					org.zkoss.zk.scripting.Namespaces.beforeInterpret(backup, comp, false):
-					org.zkoss.zk.scripting.Namespaces.beforeInterpret(backup, page, false);
-				try {	
-					page.interpret(zs.getLanguage(),
-						zs.getContent(page, comp), ns);
-				} finally {
-					org.zkoss.zk.scripting.Namespaces.afterInterpret(backup, ns, false);
-				}
-			}
-			/** @deprecated */
-			public void setPageOnly(Execution exec) {
-				setAttribute(exec,
-					PageCtrl.ATTR_REDRAW_BY_INCLUDE, Boolean.TRUE);
-			}
-			/** @deprecated */
-			public void addMold(ComponentDefinition compdef,
-			String widgetClass, String moldName, String moldURI) {
-				if (moldURI != null && moldURI.length() != 0) {
-					compdef.addMold(
-						moldName == null || moldName.length() == 0 ? "default": moldName,
-							moldURI.startsWith("class:") ? moldURI: moldURI, null);
-				}
-				if (widgetClass != null && widgetClass.length() != 0)
-					throw new UnsupportedOperationException("widgetClass not supported in "+Version.UID);
-			}
-			public void beforeRender(Execution exec, Page page) {
-				enter(this, exec);
-			}
-			/** @deprecated */ //so javac won't show warning
-			public void afterRender(Execution exec, Page page) {
-				if (exit(this, exec))
-					removeAttribute(exec, PageCtrl.ATTR_REDRAW_BY_INCLUDE);
-			}
-			public Object getAttribute(Execution exec, String name) {
-				return ((ServletRequest)exec.getNativeRequest()).getAttribute(name);
-			}
-			public void setAttribute(Execution exec, String name, Object value) {
-				((ServletRequest)exec.getNativeRequest()).setAttribute(name, value);
-					//can't access setAttribute directly, since signature of ZK 5 changed
-			}
-			public void removeAttribute(Execution exec, String name) {
-				((ServletRequest)exec.getNativeRequest()).removeAttribute(name);
-					//can't access removeAttribute directly, since signature of ZK 5 changed
-			}
-			public Inline newInline(String txt){
-				return new Inline(txt);				
 			}
 		};
 	}

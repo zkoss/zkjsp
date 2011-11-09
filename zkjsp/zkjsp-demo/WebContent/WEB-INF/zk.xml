@@ -183,4 +183,8 @@ Copyright (C) 2006 Potix Corporation. All Rights Reserved.
 		<listener>
 		    <listener-class>org.zkoss.jspdemo.listener.SystemWideInitiator</listener-class>
 		</listener>
+		<system-property>
+			<name>org.zkoss.zel.impl.parser.SKIP_IDENTIFIER_CHECK</name>
+			<value>true</value>
+		</system-property>
 </zk>
