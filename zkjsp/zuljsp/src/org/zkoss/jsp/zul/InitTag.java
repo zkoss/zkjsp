@@ -30,7 +30,7 @@ import org.zkoss.jsp.zul.impl.AbstractTag;
 import org.zkoss.jsp.zul.impl.Initiators;
 import org.zkoss.jsp.zul.impl.Jsps;
 import org.zkoss.jsp.zul.impl.RootTag;
-import org.zkoss.jspdemo.AbstractMyInit;
+import org.zkoss.jsp.zul.impl.AbstractMyInit;
 import org.zkoss.lang.Classes;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Page;
