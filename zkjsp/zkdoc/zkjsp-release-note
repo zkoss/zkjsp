@@ -5,6 +5,7 @@ JSP Tags 2.0
 * Bugs:  
 
 * Upgrade Notes:
+	+ This is the first version that compatible with ZK6, not compatible with zk5 or previous versions.
 
 	--------
 JSP Tags 1.7
