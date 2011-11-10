@@ -1,4 +1,4 @@
-package org.zkoss.jspdemo;
+package org.zkoss.jsp.zul.impl;
 
 import java.util.Map;
 
