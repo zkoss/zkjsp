@@ -115,7 +115,7 @@ public class InitTag extends AbstractTag implements DynamicAttributes{
 			}
 		}
 		else
-			init = new innerInit(); // zscript initiator...
+			init = new InnerInit(); // zscript initiator...
 		Initiators.getInstance(this.getJspContext()).addInitiator(init, _args);	
 	}
 
@@ -147,7 +147,7 @@ public class InitTag extends AbstractTag implements DynamicAttributes{
 	public void setZscript(String zscript) {
 		this._zscript = zscript;
 	}
-	class innerInit implements Initiator, InitiatorExt {
+	private class InnerInit implements Initiator, InitiatorExt {
 		/* Implementation Logic(non-Javadoc)
 		 * 1.
 		 * 2.
