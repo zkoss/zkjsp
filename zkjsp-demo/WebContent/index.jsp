@@ -54,6 +54,10 @@
 					href="./draganddrop.jsp" label="Drag and Drop Demo" />
 			</z:hbox></div>
 			<div style="margin-top: 10px"><z:hbox>
+					Combobutton Demo: <z:toolbarbutton
+					href="./combobutton.jsp" label="Combobutton Demo" />
+			</z:hbox></div>
+			<div style="margin-top: 10px"><z:hbox>
 					ZK Capcha Component in jsp: <z:toolbarbutton href="./capcha.jsp"
 					label="Capcha Demo" />
 			</z:hbox></div>
@@ -64,6 +68,14 @@
 			<div style="margin-top: 10px"><z:hbox>
 					ZK Borderlayout component set from ZKEX: <z:toolbarbutton
 					href="./borderlayout.jsp" label="Borderlayout Demo" />
+			</z:hbox></div>
+			<div style="margin-top: 10px"><z:hbox>
+					Absolutelayout Demo: <z:toolbarbutton
+					href="./absolutelayout.jsp" label="Absolutelayout Demo" />
+			</z:hbox></div>
+			<div style="margin-top: 10px"><z:hbox>
+					Anchorlayout Demo: <z:toolbarbutton
+					href="./anchorlayout.jsp" label="Anchorlayout Demo" />
 			</z:hbox></div>
 			<div style="margin-top: 10px"><z:hbox>
 					ZK Auxheader Demo from ZKEX: <z:toolbarbutton

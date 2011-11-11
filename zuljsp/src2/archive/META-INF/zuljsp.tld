@@ -6,7 +6,7 @@ Purpose:
 Description:
 	
 Histroy:
-	2011/02/22  16:01:07 , Created by tomyeh modified by Ian Tsai, Jimmy Shiau
+	2011/02/22  16:01:07, Created by tomyeh modified by Ian Tsai, Jimmy Shiau
 
 Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 -->
@@ -333,6 +333,7 @@ Currently, it supports xul/html and xhtml.
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
+		
 	</tag>
 	<!-- ZK XUL A Components -->
 	<tag>
@@ -361,6 +362,174 @@ Currently, it supports xul/html and xhtml.
 		<attribute>
 			<description>
 	Default : Zul Component A.
+			</description>
+			<name>use</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	Used to forward Event, same as ZUL's forward.
+			</description>
+			<name>forward</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>
+	<!-- ZK XUL Absolutelayout Components -->
+	<tag>
+		<description>
+	Define the Absolutelayout comonent.
+		</description>
+		<name>absolutelayout</name>
+		<tag-class>org.zkoss.jsp.zul.AbsolutelayoutTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description>
+	If false, this tag is ignored. Default: true.
+			</description>
+			<name>if</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	If true, this tag is ignored. Default: false.
+			</description>
+			<name>unless</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	Default : Zul Component Absolutelayout.
+			</description>
+			<name>use</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	Used to forward Event, same as ZUL's forward.
+			</description>
+			<name>forward</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>
+	<!-- ZK XUL Absolutechildren Components -->
+	<tag>
+		<description>
+	Define the Absolutechildren comonent.
+		</description>
+		<name>absolutechildren</name>
+		<tag-class>org.zkoss.jsp.zul.AbsolutechildrenTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description>
+	If false, this tag is ignored. Default: true.
+			</description>
+			<name>if</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	If true, this tag is ignored. Default: false.
+			</description>
+			<name>unless</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	Default : Zul Component Absolutechildren.
+			</description>
+			<name>use</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	Used to forward Event, same as ZUL's forward.
+			</description>
+			<name>forward</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>
+	<!-- ZK XUL Anchorlayout Components -->
+	<tag>
+		<description>
+	Define the Anchorlayout comonent.
+		</description>
+		<name>anchorlayout</name>
+		<tag-class>org.zkoss.jsp.zul.AnchorlayoutTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description>
+	If false, this tag is ignored. Default: true.
+			</description>
+			<name>if</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	If true, this tag is ignored. Default: false.
+			</description>
+			<name>unless</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	Default : Zul Component Anchorlayout.
+			</description>
+			<name>use</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	Used to forward Event, same as ZUL's forward.
+			</description>
+			<name>forward</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>
+	<!-- ZK XUL Anchorchildren Components -->
+	<tag>
+		<description>
+	Define the Anchorchildren comonent.
+		</description>
+		<name>anchorchildren</name>
+		<tag-class>org.zkoss.jsp.zul.AnchorchildrenTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description>
+	If false, this tag is ignored. Default: true.
+			</description>
+			<name>if</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	If true, this tag is ignored. Default: false.
+			</description>
+			<name>unless</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	Default : Zul Component Anchorchildren.
 			</description>
 			<name>use</name>
 			<required>false</required>
@@ -1159,6 +1328,48 @@ Currently, it supports xul/html and xhtml.
 		<attribute>
 			<description>
 	Default : Zul Component Combobox.
+			</description>
+			<name>use</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	Used to forward Event, same as ZUL's forward.
+			</description>
+			<name>forward</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>
+	<!-- ZK XUL Combobutton Components -->
+	<tag>
+		<description>
+	Define the Combobutton comonent.
+		</description>
+		<name>combobutton</name>
+		<tag-class>org.zkoss.jsp.zul.CombobuttonTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description>
+	If false, this tag is ignored. Default: true.
+			</description>
+			<name>if</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	If true, this tag is ignored. Default: false.
+			</description>
+			<name>unless</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	Default : Zul Component Combobutton.
 			</description>
 			<name>use</name>
 			<required>false</required>
