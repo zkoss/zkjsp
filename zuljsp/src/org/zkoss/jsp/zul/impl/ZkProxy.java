@@ -40,19 +40,11 @@ import org.zkoss.zk.ui.impl.Attributes;
  * @since 1.4.0
  */
 public class ZkProxy {
-	private static Proxy _proxy;
+	private static final Proxy _proxy = newProxy5();
 
 	/** Returns the ZK proxy used to access version-dependent features.
 	 */
 	public static Proxy getProxy() {
-		if (_proxy == null) {//no need to synchronized
-			try {
-				Classes.forNameByThread("org.zkoss.zk.ui.sys.PageRenderer");
-				_proxy = newProxy5();
-			} catch (ClassNotFoundException ex) {
-				ex.printStackTrace();
-			}
-		}
 		return _proxy;
 	}
 

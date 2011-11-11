@@ -29,6 +29,7 @@ import javax.servlet.jsp.tagext.JspTag;
 
 import org.zkoss.jsp.zul.impl.AbstractTag;
 import org.zkoss.jsp.zul.impl.BranchTag;
+import org.zkoss.zk.ui.ext.Scope;
 
 /**
  * @author Ian Tsai
@@ -54,7 +55,7 @@ public class VariablesTag extends AbstractTag implements DynamicAttributes {
 			final String name = (String)me.getKey();
 			final Object value = me.getValue();
 			if(_branchTag!=null)
-				_branchTag.getComponent().setAttribute(name, value, local);
+				_branchTag.getComponent().getSpaceOwner().setAttribute(name, value, !local);
 			else 
 				_pageTag.getPage().setAttribute(name, value);
 		}

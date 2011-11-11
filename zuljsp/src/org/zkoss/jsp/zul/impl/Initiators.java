@@ -124,18 +124,16 @@ public class Initiators{
 			if (init instanceof InitiatorExt) {
 				if (comps == null) comps = new Component[0];
 				((InitiatorExt)init).doAfterCompose(page, comps);
-			} else {
-				((InitiatorExt)init).doAfterCompose(page, comps);
 			}
 		}
-		Initiator init;
+		InitiatorExt init;
 		for (Iterator it = _inits.iterator(); it.hasNext();) {
-			init = (Initiator)((Object[])it.next())[0];
-			if (init instanceof InitiatorExt) {
+			Object o = ((Object[])it.next())[0];
+			if (o instanceof InitiatorExt) {
+				init = (InitiatorExt)o;
 				if (comps == null) comps = new Component[0];
-				((InitiatorExt)init).doAfterCompose(page, comps);
-			} else 
-				((InitiatorExt)init).doAfterCompose(page, comps);
+				init.doAfterCompose(page, comps);
+			}
 		}
 	}
 	/** Invokes {@link Initiator#doCatch}.
@@ -145,18 +143,23 @@ public class Initiators{
 	public void doCatch(Throwable t) {
 		for (int j = 0; j < _sysinits.length; ++j) {
 			final Initiator init = _sysinits[j];
-			try {
-				((InitiatorExt)init).doCatch(t);
-			} catch (Throwable ex) {
-				log.error(ex);
+			if (init instanceof InitiatorExt) {
+				try {
+					((InitiatorExt)init).doCatch(t);
+				} catch (Throwable ex) {
+					log.error(ex);
+				}
 			}
 		}
 		for (Iterator it = _inits.iterator(); it.hasNext();) {
-			final Initiator init = ((Initiator)((Object[])it.next())[0]);
-			try {
-				((InitiatorExt)init).doCatch(t);
-			} catch (Throwable ex) {
-				log.error(ex);
+			Object o = ((Object[])it.next())[0];
+			if (o instanceof InitiatorExt) {
+				final InitiatorExt init = (InitiatorExt)o;
+				try {
+					init.doCatch(t);
+				} catch (Throwable ex) {
+					log.error(ex);
+				}
 			}
 		}
 	}
@@ -166,20 +169,25 @@ public class Initiators{
 		Throwable t = null;
 		for (int j = 0; j < _sysinits.length; ++j) {
 			final Initiator init = _sysinits[j];
-			try {
-				((InitiatorExt)init).doFinally();
-			} catch (Throwable ex) {
-				log.error(ex);
-				if (t == null) t = ex;
+			if (init instanceof InitiatorExt) {
+				try {
+					((InitiatorExt)init).doFinally();
+				} catch (Throwable ex) {
+					log.error(ex);
+					if (t == null) t = ex;
+				}
 			}
 		}
 		for (Iterator it = _inits.iterator(); it.hasNext();) {
-			final Initiator init = ((Initiator)((Object[])it.next())[0]);
-			try {
-				((InitiatorExt)init).doFinally();
-			} catch (Throwable ex) {
-				log.error(ex);
-				if (t == null) t = ex;
+			Object o = ((Object[])it.next())[0];
+			if (o instanceof InitiatorExt) {
+				final InitiatorExt init = (InitiatorExt)o;
+				try {
+					init.doFinally();
+				} catch (Throwable ex) {
+					log.error(ex);
+					if (t == null) t = ex;
+				}
 			}
 		}
 		if (t != null) throw UiException.Aide.wrap(t);
