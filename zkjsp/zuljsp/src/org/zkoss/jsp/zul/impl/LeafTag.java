@@ -213,7 +213,7 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 		{
 			String attval = value.toString();
 			// test if this attribute is an annotation...
-			if (isAnnotation(attval)) { //annotation
+			if (AnnotationHelper.isAnnotation(attval)) { //annotation
 				AnnotationHelper helper = new AnnotationHelper();
 				helper.addByCompoundValue(attval);
 				helper.applyAnnotations(target, 
@@ -226,18 +226,6 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 		else if(target.getDefinition().isMacro())
 			((DynamicPropertied)target).setDynamicProperty(attnm, value);
 		else Fields.setByCompound(target, attnm, value, true);
-	}
-	/**
-	 * test if the String content is an annotation.
-	 * @param attval attribute value.
-	 * @return boolean
-	 */
-	public static boolean isAnnotation(String attval)
-	{
-		final int len = attval.length();
-		return (len >= 3 && attval.charAt(0) == '@' && 
-				attval.charAt(1) == '{' && 
-				attval.charAt(len-1) == '}') ;
 	}
 	
 	/**

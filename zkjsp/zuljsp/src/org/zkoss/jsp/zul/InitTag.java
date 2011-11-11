@@ -30,13 +30,13 @@ import org.zkoss.jsp.zul.impl.AbstractTag;
 import org.zkoss.jsp.zul.impl.Initiators;
 import org.zkoss.jsp.zul.impl.Jsps;
 import org.zkoss.jsp.zul.impl.RootTag;
-import org.zkoss.jsp.zul.impl.AbstractMyInit;
 import org.zkoss.lang.Classes;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Page;
 import org.zkoss.zk.ui.UiException;
 import org.zkoss.zk.ui.metainfo.ZScript;
 import org.zkoss.zk.ui.util.Initiator;
+import org.zkoss.zk.ui.util.InitiatorExt;
 
 /**
  * 
@@ -115,31 +115,7 @@ public class InitTag extends AbstractTag implements DynamicAttributes{
 			}
 		}
 		else
-		{// zscript initiator...
-			init = new AbstractMyInit(){
-				/* Implementation Logic(non-Javadoc)
-				 * 1.
-				 * 2.
-				 * 3.
-				 */
-				public void doInit(Page page, Map args) throws Exception {
-					final String zslang = page.getZScriptLanguage();
-					final URL url = Jsps.getPageContext(
-							getJspContext()).getServletContext().getResource(_zscript);
-					if (url == null) 
-						throw new UiException("File not found: "+_zscript);
-					ZScript zs = new ZScript(zslang, url);
-					RootTag.processZScript(page, null, zs, false);
-				}
-				public void doAfterCompose(Page page) throws Exception {}
-				public void doAfterCompose(Page page, Component[] comps) throws Exception {}
-				public void doFinally() throws Exception {}
-				public boolean doCatch(Throwable ex) throws Exception {
-					return false;
-				}
-			};//end of class...
-			
-		}
+			init = new innerInit(); // zscript initiator...
 		Initiators.getInstance(this.getJspContext()).addInitiator(init, _args);	
 	}
 
@@ -171,4 +147,26 @@ public class InitTag extends AbstractTag implements DynamicAttributes{
 	public void setZscript(String zscript) {
 		this._zscript = zscript;
 	}
+	class innerInit implements Initiator, InitiatorExt {
+		/* Implementation Logic(non-Javadoc)
+		 * 1.
+		 * 2.
+		 * 3.
+		 */
+		public void doInit(Page page, Map args) throws Exception {
+			final String zslang = page.getZScriptLanguage();
+			final URL url = Jsps.getPageContext(
+					getJspContext()).getServletContext().getResource(_zscript);
+			if (url == null) 
+				throw new UiException("File not found: "+_zscript);
+			ZScript zs = new ZScript(zslang, url);
+			RootTag.processZScript(page, null, zs, false);
+		}
+		public void doAfterCompose(Page page) throws Exception {}
+		public void doAfterCompose(Page page, Component[] comps) throws Exception {}
+		public void doFinally() throws Exception {}
+		public boolean doCatch(Throwable ex) throws Exception {
+			return false;
+		}
+	};//end of class...
 }
