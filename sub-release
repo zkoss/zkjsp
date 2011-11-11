@@ -162,6 +162,9 @@ if [ "$target" == "official" ] ; then
 		mv /tmp/zk/$binnm/dist/src/$1-sources.jar $1/$1-$ver-sources.jar
 		sed -e "s/{version}/$ver/" $maindir/$1/pom.xml > $1/pom.xml
 		cp $maindir/dist/lib/$1.jar $1/$1-$ver.jar
+		# should change mode to make sure it is accessable
+		# or sometimes will cause 'access denied' problem
+		chmod 775 $1/$1-$ver.jar
 		jar cfM $1-$ver-bundle.jar -C $1 .
 	}
 	mkdir -p maven
