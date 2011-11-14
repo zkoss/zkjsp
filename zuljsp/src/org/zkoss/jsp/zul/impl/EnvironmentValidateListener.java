@@ -32,7 +32,7 @@ public class EnvironmentValidateListener implements ServletContextListener {
 		try {
 			int v = org.zkoss.util.Utils.parseVersion(org.zkoss.zk.Version.RELEASE)[0];
 			if (v < 6)
-				throw new Exception(" ZK 6.0 or later is required for ZK JSP "+Version.UID+" or later");
+				throw new Exception(" ZK 6.0 or later is required for ZK JSP "+Version.UID);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
