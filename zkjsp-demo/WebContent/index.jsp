@@ -114,6 +114,10 @@
 					href="./zkspreadsheet.jsp" label="Spreadsheet Demo" />
 			</z:hbox></div>
 			<div style="margin-top: 10px"><z:hbox>
+					ZK Pivottable Demo: <z:toolbarbutton
+					href="./test/pivottable.jsp" label="Pivottable Demo" />
+			</z:hbox></div>
+			<div style="margin-top: 10px"><z:hbox>
 					ZK Fusionchart Demo: <z:toolbarbutton
 					href="./fusionchart.jsp" label="Fusionchart Demo" />
 			</z:hbox></div>

@@ -9,7 +9,7 @@
 </head>
 <body>
 <z:page zscriptLanguage="java">
-	You can hange background of listitem by click combobutton and <br />
+	You can change background of listitem by click an item then click combobutton,<br />
 	change selected color by open dropdown and choose color. 
 	<z:window position="center" mode="overlapped">
 		<z:hbox>
