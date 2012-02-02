@@ -32,7 +32,8 @@ import javax.servlet.jsp.tagext.JspTag;
 import org.zkoss.lang.Classes;
 import org.zkoss.lang.reflect.Fields;
 
-import org.zkoss.util.ModificationException;
+import org.zkoss.lang.CommonException;
+import org.zkoss.util.resource.Location;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Page;
@@ -186,7 +187,7 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 	 * @throws NoSuchMethodException
 	 */
 	protected void evaluateDynaAttributes(Component target, Map attrs) 
-	throws ModificationException, NoSuchMethodException{
+	throws CommonException, NoSuchMethodException{
 		AnnotationHelper helper = null;
 		for(Iterator itor = attrs.entrySet().iterator();itor.hasNext();){
 			Map.Entry entry= (Entry) itor.next();
@@ -207,7 +208,7 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 	 * @throws NoSuchMethodException
 	 */
 	public static void evaluateDynaAttribute(Component target, String attnm, Object value)
-	throws ModificationException, NoSuchMethodException
+	throws CommonException, NoSuchMethodException
 	{
 		if(value!=null && value instanceof String)
 		{
@@ -215,7 +216,7 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 			// test if this attribute is an annotation...
 			if (AnnotationHelper.isAnnotation(attval)) { //annotation
 				AnnotationHelper helper = new AnnotationHelper();
-				helper.addByCompoundValue(attval);
+				helper.addByCompoundValue(attval, null);
 				helper.applyAnnotations(target, 
 						"self".equals(attnm) ? null: attnm, true);
 			}
@@ -383,5 +384,4 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 	public Component[] getComponents() {
 		return new Component[]{_comp};
 	}
-	
 }

@@ -11,7 +11,7 @@ import javax.servlet.jsp.tagext.JspTag;
 
 import org.zkoss.jsp.zul.impl.AbstractTag;
 import org.zkoss.jsp.zul.impl.BranchTag;
-import org.zkoss.util.ModificationException;
+import org.zkoss.lang.CommonException;
 
 /**
  * Same meanings as zul attribute Tag.<br> 
@@ -40,7 +40,7 @@ public class AttributeTag extends AbstractTag {
 				_parent.setDynamicAttribute(null, _name, outStr);
 			else
 				BranchTag.evaluateDynaAttribute(_parent.getComponent(), _name, outStr);
-		} catch (ModificationException e) {
+		} catch (CommonException e) {
 			throw new JspException(e);
 		} catch (NoSuchMethodException e) {
 			throw new JspException(e);
