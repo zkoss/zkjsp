@@ -126,6 +126,24 @@ Currently, it supports xul/html and xhtml.
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 	</tag>
+	<!--***** Template Tag  *****-->
+	<tag>
+		<description>
+	Define the Template tag.
+		</description>
+		<name>template</name>
+		<tag-class>org.zkoss.jsp.zul.TemplateTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description>
+		Attribute Name.
+			</description>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>
 	<tag><!--***** AttributeTag  *****-->
 		<description>
 	Define Attribute Tag.
@@ -3386,6 +3404,48 @@ Currently, it supports xul/html and xhtml.
 		<attribute>
 			<description>
 	Default : Zul Component Script.
+			</description>
+			<name>use</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	Used to forward Event, same as ZUL's forward.
+			</description>
+			<name>forward</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>
+	<!-- ZK XUL Selectbox Components -->
+	<tag>
+		<description>
+	Define the Selectbox comonent.
+		</description>
+		<name>selectbox</name>
+		<tag-class>org.zkoss.jsp.zul.SelectboxTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description>
+	If false, this tag is ignored. Default: true.
+			</description>
+			<name>if</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	If true, this tag is ignored. Default: false.
+			</description>
+			<name>unless</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	Default : Zul Component Selectbox.
 			</description>
 			<name>use</name>
 			<required>false</required>
