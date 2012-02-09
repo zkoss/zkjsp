@@ -242,7 +242,8 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 		if("if".equals(localName)||"unless".equals(localName))
 			throw new JspException("if, unless, use is static method!!!");
 		
-		if(localName.startsWith("on")){
+		if(localName.startsWith("on")
+			&& !(value instanceof String) && ((String)value).trim().startsWith("@")){
 			if(value==null){
 				throw new IllegalArgumentException(
 						"can not register a EventListener with null zscript " +
