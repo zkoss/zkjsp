@@ -248,9 +248,10 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 						"can not register a EventListener with null zscript " +
 						"expression: "+localName);
 			}
+			// ZK6 MVVM annotation
 			if ((value instanceof String) && ((String)value).trim().startsWith("@"))
 				_attrMap.put(localName, value);
-			else
+			else // common java code
 				_eventListenerMap.put(localName, value);
 		}
 		else
