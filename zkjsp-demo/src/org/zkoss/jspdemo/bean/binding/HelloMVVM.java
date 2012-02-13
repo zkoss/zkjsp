@@ -1,9 +1,10 @@
 package org.zkoss.jspdemo.bean.binding;
-
+/* temp comment out since zk6 not release
 import org.zkoss.bind.annotation.Command;
-import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.bind.annotation.NotifyChange;*/
 
 public class HelloMVVM {
+	/* temp comment out since zk6 not release
 	private String _textboxStr = "text box";
 	private String _labelStr = "label";
 	public void setTextboxStr (String textboxStr) {
@@ -22,5 +23,5 @@ public class HelloMVVM {
 	public void sayHello () {
 		_textboxStr = "Hello";
 		_labelStr = "MVVM";
-	}
+	}*/
 }
