@@ -3,7 +3,6 @@
 ../dist/lib/zk.jar
 ../dist/lib/zul.jar
 ../dist/lib/zkex.jar
-../dist/lib/zkbind.jar
 ../dist/lib/zuljsp.jar
 ../dist/lib/ext2/servlet-api.jar
 ../dist/lib/ext2/jsp-api.jar
