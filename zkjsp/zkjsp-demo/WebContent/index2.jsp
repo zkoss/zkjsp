@@ -109,7 +109,9 @@
 			</z:hbox></z:div>
 			<z:div style="margin-top: 10px"><z:hbox>
 					<z:toolbarbutton
-					href="./index.jsp" label="back" />
+						href="./index.jsp" label="back" />
+					<z:toolbarbutton
+						href="./index3.jsp" label="next" />
 			</z:hbox></z:div>
 		</z:vbox>
 	</z:window>
