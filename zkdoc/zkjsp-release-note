@@ -8,6 +8,7 @@ JSP Tags 2.0
 	+ This is the first version that compatible with ZK6, not compatible with zk5 or previous versions.
 	+ Upgrade to support zkbind.
 	+ NOT support ZK-Template, use JSP-Template instead.
+	+ New component tags: combobutton, absolutelayout, absolutechildren, anchorlayout, anchorchildren, selectbox
 
 	--------
 JSP Tags 1.7
