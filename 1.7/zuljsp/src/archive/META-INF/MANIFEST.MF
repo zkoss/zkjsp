@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.1
+Created-By: 1.6.0_21-b07 (Sun Microsystems Inc.)
+Specification-Title: ZUL JSP Tags
+Specification-Version: 1.7
+Specification-Vendor: Potix Corporation
+Implementation-Title: ZUL JSP Tags
+Implementation-URL: http://www.zkoss.org/jsp/zul
+Implementation-Version: 1.7
+Implementation-Vendor: Potix Corporation
+
