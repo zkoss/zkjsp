@@ -1,0 +1,11 @@
+../dist/lib/zcommon.jar
+../dist/lib/zweb.jar
+../dist/lib/zk.jar
+../dist/lib/zul.jar
+../dist/lib/zuljsp.jar
+../dist/lib/zkplus.jar
+../dist/lib/zkex.jar
+../dist/lib/zkbind.jar
+../dist/lib/ext2/jsp-api.jar
+../dist/lib/ext2/el-api.jar
+../dist/lib/ext2/servlet-api.jar
