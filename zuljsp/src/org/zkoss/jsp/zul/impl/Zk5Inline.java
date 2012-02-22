@@ -58,6 +58,7 @@ public class Zk5Inline extends Inline {
 	throws java.io.IOException { //ZK 5.0
 		super.renderProperties(renderer);
 		render(renderer, "prolog", getContent());
+		render(renderer, "isjsp", true); // bug ZKJSP-6
 	}
 	
 	protected void draw(Writer out) throws IOException {		
