@@ -20,7 +20,7 @@ Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 	<description>
 	The JSP Tags for ZK XUL Components
 	</description>
-	<tlib-version>1.7</tlib-version>
+	<tlib-version>1.8</tlib-version>
 	<short-name>zuljsp</short-name>
 	<uri>http://www.zkoss.org/jsp/zul</uri>
 	
