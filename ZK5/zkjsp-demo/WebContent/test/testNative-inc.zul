@@ -1,0 +1,12 @@
+<zk xmlns:n="native">
+	<div width="300px">
+		<!-- test ZK Native -->
+		<n:table width="100%" border="1">
+			<n:tr>
+				<n:td>
+					<label value="Text in zk native in zul file"></label>
+				</n:td>
+			</n:tr>
+		</n:table>
+	</div>
+</zk>
