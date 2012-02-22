@@ -21,6 +21,10 @@
 			</z:hbox></z:div>
 			<z:div style="margin-top: 10px"><z:hbox>
 					<z:toolbarbutton
+					href="./test/testNative.jsp" label="test native" />
+			</z:hbox></z:div>
+			<z:div style="margin-top: 10px"><z:hbox>
+					<z:toolbarbutton
 						href="./index2.jsp" label="back" />
 			</z:hbox></z:div>
 		</z:vbox>
