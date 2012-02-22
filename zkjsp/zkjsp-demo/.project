@@ -31,17 +31,17 @@
 		<link>
 			<name>jspsrc</name>
 			<type>2</type>
-			<location>D:/java/workspace/zkcurrent/zk6/zkjsp20/zuljsp/src</location>
+			<location>D:/java/workspace/zkcurrent/zk6/zkjsp/zuljsp/src</location>
 		</link>
 		<link>
 			<name>jspsrc2</name>
 			<type>2</type>
-			<location>D:/java/workspace/zkcurrent/zk6/zkjsp20/zuljsp/src2</location>
+			<location>D:/java/workspace/zkcurrent/zk6/zkjsp/zuljsp/src2</location>
 		</link>
 		<link>
 			<name>toolsrc</name>
 			<type>2</type>
-			<location>D:/java/workspace/zkcurrent/zk6/zkjsp20/tool/src</location>
+			<location>D:/java/workspace/zkcurrent/zk6/zkjsp/tool/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>
