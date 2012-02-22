@@ -95,6 +95,10 @@
 					<z:toolbarbutton
 					href="./test/window.jsp" label="window.jsp" />
 			</z:hbox></div>
+			<z:div style="margin-top: 10px"><z:hbox>
+					<z:toolbarbutton
+					href="./test/testNative.jsp" label="test native" />
+			</z:hbox></z:div>
 			<div style="margin-top: 10px"><z:hbox>
 					<z:toolbarbutton
 					href="./test/zsinit.jsp" label="zsinit.jsp" />

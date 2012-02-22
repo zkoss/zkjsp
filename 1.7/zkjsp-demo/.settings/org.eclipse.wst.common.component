@@ -6,7 +6,9 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/zuljsp"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/zuljsp2"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/jspsrc/archive"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/jspsrc2"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/jspsrc2/archive"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/jspsrc"/>
         <property name="java-output-path" value="build/classes"/>
         <property name="context-root" value="zuljsp"/>
     </wb-module>
