@@ -5981,6 +5981,48 @@ Currently, it supports xul/html and xhtml.
 		</attribute>
 		<dynamic-attributes>true</dynamic-attributes>
 	</tag>
+	<!-- ZK XUL Biglistbox Components -->
+	<tag>
+		<description>
+	Define the Biglistbox comonent.
+		</description>
+		<name>biglistbox</name>
+		<tag-class>org.zkoss.jsp.zul.BiglistboxTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description>
+	If false, this tag is ignored. Default: true.
+			</description>
+			<name>if</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	If true, this tag is ignored. Default: false.
+			</description>
+			<name>unless</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	Default : Zul Component Biglistbox.
+			</description>
+			<name>use</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+	Used to forward Event, same as ZUL's forward.
+			</description>
+			<name>forward</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>
 	<!-- ZK XUL Portallayout Components -->
 	<tag>
 		<description>
