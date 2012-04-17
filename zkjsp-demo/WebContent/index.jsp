@@ -62,6 +62,10 @@
 					href="./biglistbox.jsp" label="Biglistbox Demo" />
 			</z:hbox></z:div>
 			<z:div style="margin-top: 10px"><z:hbox>
+					Chosenbox Demo: <z:toolbarbutton
+					href="./chosenbox.jsp" label="Chosenbox Demo" />
+			</z:hbox></z:div>
+			<z:div style="margin-top: 10px"><z:hbox>
 					Combobutton Demo: <z:toolbarbutton
 					href="./combobutton.jsp" label="Combobutton Demo" />
 			</z:hbox></z:div>
