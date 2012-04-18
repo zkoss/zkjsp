@@ -1,6 +1,8 @@
 	--------
 JSP Tags 2.1
 * Features:
+	Add Biglistbox component tag
+	Add Chosenbox component tag
 
 * Bugs:  
 
@@ -18,6 +20,15 @@ JSP Tags 2.0
 	+ NOT support ZK-Template, use JSP-Template instead.
 	+ New component tags: combobutton, absolutelayout, absolutechildren, anchorlayout, anchorchildren, selectbox
 
+	--------
+JSP Tags 1.8
+* Features:
+
+* Bugs:  
+	ZKJSP-6: Incorrect output if native html nest within ZK JSP tag
+
+* Upgrade Notes:
+	
 	--------
 JSP Tags 1.7
 * Features:
