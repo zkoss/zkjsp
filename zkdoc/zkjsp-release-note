@@ -3,6 +3,7 @@ JSP Tags 1.8
 * Features:
 
 * Bugs:  
+	ZKJSP-6: Incorrect output if native html nest within ZK JSP tag
 
 * Upgrade Notes:
 	
