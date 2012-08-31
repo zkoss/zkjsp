@@ -159,7 +159,6 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 		if(compdef==null)
 			throw new JspException("can't find this Component's definition:"+tagName);
 		_comp = (Component) compdef.resolveImplementationClass(page, getUse()).newInstance();
-		_composeHandle.doBeforeComposeChildren(_comp);
 
 		if (_parenttag != null)_parenttag.addChildTag(this);
 		else _roottag.addChildTag(this);
@@ -168,6 +167,7 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 	
 		// apply attributes to component...
 		evaluateDynaAttributes(_comp, _attrMap);
+		_composeHandle.doBeforeComposeChildren(_comp);
 	}
 	/**
 	 * 
@@ -249,9 +249,11 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 						"expression: "+localName);
 			}
 			// ZK6 MVVM annotation
-			if ((value instanceof String) && ((String)value).trim().startsWith("@"))
+			if ((value instanceof String) && ((String)value).trim().startsWith("@")) {
+				System.out.println(localName);
+				System.out.println(value);
 				_attrMap.put(localName, value);
-			else // common java code
+			} else // common java code
 				_eventListenerMap.put(localName, value);
 		}
 		else
