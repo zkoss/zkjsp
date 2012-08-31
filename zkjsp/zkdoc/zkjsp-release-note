@@ -1,4 +1,12 @@
 	--------
+JSP Tags 2.2
+* Features:
+
+* Bugs:  
+	ZKJSP-9: 
+* Upgrade Notes: MVVM not work since 6.0.2
+
+	--------
 JSP Tags 2.1
 * Features:
 	Add Biglistbox component tag
