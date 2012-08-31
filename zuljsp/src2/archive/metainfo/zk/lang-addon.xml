@@ -4,7 +4,7 @@
 	<depends>zk</depends>
 	<version>
 		<version-class>org.zkoss.jsp.Version</version-class>
-		<version-uid>2.1</version-uid>
+		<version-uid>2.2</version-uid>
 		<zk-version>6.0.0</zk-version><!-- or later -->
 	</version>
 	<language-name>xul/html</language-name>
