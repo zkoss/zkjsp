@@ -1,10 +1,18 @@
 	--------
+JSP Tags 2.3
+* Features:
+
+* Bugs:  
+
+* Upgrade Notes: 
+
+	--------
 JSP Tags 2.2
 * Features:
 
 * Bugs:  
 	ZKJSP-9: 
-* Upgrade Notes: MVVM not work since 6.0.2
+* Upgrade Notes: MVVM not work since 6.0.2 before, fixed in this version
 
 	--------
 JSP Tags 2.1
