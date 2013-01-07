@@ -7,7 +7,9 @@ import javax.servlet.jsp.JspException;
 import org.zkoss.lang.Classes;
 import org.zkoss.util.CollectionsX;
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Page;
 import org.zkoss.zk.ui.UiException;
+import org.zkoss.zk.ui.metainfo.ComponentInfo;
 import org.zkoss.zk.ui.util.Composer;
 import org.zkoss.zk.ui.util.ComposerExt;
 
@@ -69,6 +71,20 @@ import org.zkoss.zk.ui.util.ComposerExt;
 			throw UiException.Aide.wrap(ex);
 		}
 		return null;
+	}
+	/**
+	 * 2013-01-04
+	 * @param page
+	 * @param parent
+	 * @param compInfo
+	 * @return
+	 * @throws Exception
+	 */
+	public ComponentInfo doBeforeCompose(Page page, Component parent,
+			ComponentInfo compInfo) throws Exception {
+		if(composerExt!=null)
+			return composerExt.doBeforeCompose(page, parent, compInfo);
+		return compInfo;		
 	}
 	
 	/**

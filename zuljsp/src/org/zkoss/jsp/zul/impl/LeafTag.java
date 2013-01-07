@@ -42,6 +42,7 @@ import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.ext.AfterCompose;
 import org.zkoss.zk.ui.ext.DynamicPropertied;
 import org.zkoss.zk.ui.metainfo.ComponentDefinition;
+import org.zkoss.zk.ui.metainfo.ComponentInfo;
 import org.zkoss.zk.ui.metainfo.EventHandler;
 import org.zkoss.zk.ui.metainfo.ZScript;
 import org.zkoss.zk.ui.metainfo.impl.AnnotationHelper;
@@ -158,6 +159,9 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 		ComponentDefinition compdef = page.getComponentDefinition(tagName, true);
 		if(compdef==null)
 			throw new JspException("can't find this Component's definition:"+tagName);
+		//where I can get a proper compInfo and parent?
+		_composeHandle.doBeforeCompose(page, _parenttag.getComponent(), null);
+		
 		_comp = (Component) compdef.resolveImplementationClass(page, getUse()).newInstance();
 
 		if (_parenttag != null)_parenttag.addChildTag(this);
@@ -167,6 +171,7 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 	
 		// apply attributes to component...
 		evaluateDynaAttributes(_comp, _attrMap);
+		//2012.08.31 Ian Tsai: move to here 
 		_composeHandle.doBeforeComposeChildren(_comp);
 	}
 	/**
@@ -188,7 +193,6 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 	 */
 	protected void evaluateDynaAttributes(Component target, Map attrs) 
 	throws CommonException, NoSuchMethodException{
-		AnnotationHelper helper = null;
 		for(Iterator itor = attrs.entrySet().iterator();itor.hasNext();){
 			Map.Entry entry= (Entry) itor.next();
 			String attnm = (String)entry.getKey();
