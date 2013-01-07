@@ -223,8 +223,8 @@ abstract public class RootTag extends AbstractTag {
 		final Session sess = WebManager.getSession(svlctx, request);
 
 		RequestContexts.push(new PageRequestContext(pgctx));
-			//Optiional but enable JSP page use DPS's TLD files
-			//If we don't push, everying works fine except JSP page
+			//Optional but enable JSP page use DPS's TLD files
+			//If we don't push, everything works fine except JSP page
 			//that uses ZK JSP tags cannot use xxx.dsp.tld
 		SessionsCtrl.setCurrent(sess);
 		Object old = I18Ns.setup(sess, request, response, "UTF-8");		
