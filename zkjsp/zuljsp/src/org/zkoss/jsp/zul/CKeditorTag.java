@@ -18,7 +18,6 @@ Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.jsp.zul;
 
-import org.zkforge.ckez.CKeditor;
 import org.zkoss.jsp.zul.impl.BranchTag;
 
 /**

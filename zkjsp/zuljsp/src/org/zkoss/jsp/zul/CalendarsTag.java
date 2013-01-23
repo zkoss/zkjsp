@@ -18,7 +18,6 @@ Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.jsp.zul;
 
-import org.zkoss.calendar.Calendars;
 import org.zkoss.jsp.zul.impl.BranchTag;
 
 /**
