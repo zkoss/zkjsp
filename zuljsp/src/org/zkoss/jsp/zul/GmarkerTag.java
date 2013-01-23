@@ -18,7 +18,6 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.jsp.zul;
 
-import org.zkoss.gmaps.Gmarker;
 import org.zkoss.jsp.zul.impl.BranchTag;
 
 /**

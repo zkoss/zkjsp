@@ -27,7 +27,6 @@ public class EnvironmentValidateListener implements ServletContextListener {
 	/**
 	 * do all environment validation here and show exception as need
 	 */
-	@Override
 	public void contextInitialized(ServletContextEvent event) {
 		try {
 			int v = org.zkoss.util.Utils.parseVersion(org.zkoss.zk.Version.RELEASE)[0];
@@ -37,7 +36,6 @@ public class EnvironmentValidateListener implements ServletContextListener {
 			e.printStackTrace();
 		}
 	}
-	@Override
 	public void contextDestroyed(ServletContextEvent event) {
 		
 	}

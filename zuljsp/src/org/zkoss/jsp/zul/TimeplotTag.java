@@ -18,7 +18,6 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.jsp.zul;
 
-import org.zkforge.timeplot.Timeplot;
 import org.zkoss.jsp.zul.impl.BranchTag;
 
 /**
