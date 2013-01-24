@@ -18,7 +18,6 @@ Copyright (C) ${year} Potix Corporation. All Rights Reserved.
 */
 package ${package};
 
-import ${importclass};
 import ${package}.impl.BranchTag;
 
 /**

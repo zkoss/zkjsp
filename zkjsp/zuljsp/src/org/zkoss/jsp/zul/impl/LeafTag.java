@@ -159,8 +159,11 @@ abstract public class LeafTag extends AbstractTag implements DynamicAttributes, 
 		ComponentDefinition compdef = page.getComponentDefinition(tagName, true);
 		if(compdef==null)
 			throw new JspException("can't find this Component's definition:"+tagName);
-		//where I can get a proper compInfo and parent?
-		_composeHandle.doBeforeCompose(page, _parenttag.getComponent(), null);
+		
+		
+		Component parent = _parenttag==null ? null : _parenttag.getComponent();
+		//2013.01.24 Ian Tsai: just use null as argument
+		_composeHandle.doBeforeCompose(page, parent, null);
 		
 		_comp = (Component) compdef.resolveImplementationClass(page, getUse()).newInstance();
 
