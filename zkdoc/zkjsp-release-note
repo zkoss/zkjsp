@@ -1,9 +1,10 @@
 	--------
 JSP Tags 2.3
 * Features:
+	no longer support JSP 2.0, now zk jsp only support jsp 2.1+
 
 * Bugs:  
-
+	ZKJSP-11: fix SelectorComposer's @WireVariable & zk Bind @Subscribe malfunction.
 * Upgrade Notes: 
 
 	--------

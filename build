@@ -312,7 +312,7 @@ function invoke_ant
 		#javadoc.class.path shall not contain '.', because xdoclet will
 		#ignore files that are found in classpath
 		DCP=$(echo $CP | sed -e 's/:\.:/:/g' -e 's/^\.://' -e 's/:\.$//')
-		if [ "$TERM" = "cygwin" ] ; then
+		if [ "$TERM" = "cygwin" ] || [ "$OSTYPE" = "cygwin" ] ; then
 			DCP=$(safe_cygpath "-mp" "$DCP")
 				#Don't convert CP because it is used by bash directly
 		fi
@@ -452,7 +452,12 @@ function invoke_ant
 		)
 		fi
 	else
-		CLASSPATH="$DCP" ANT_OPTS=-Xmx160M ant $verbose $class_test \
+		#a=$(pwd)
+		#echo "=== $a"
+
+		CLASSPATH="$DCP" ANT_OPTS=-Xmx160M 
+		#echo "---- $CLASSPATH"
+		ant $verbose $class_test \
 		$doall -Dformat="$format" -Ddeploy="$deploy" \
 		-Dserver.libs="$server_libs" -Dstart.service="$start_service" \
 		-Djboss.profile="$jboss_profile" -Djboss.ear="$jboss_ear" \
