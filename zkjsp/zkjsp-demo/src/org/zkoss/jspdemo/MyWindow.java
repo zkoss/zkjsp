@@ -21,10 +21,12 @@ package org.zkoss.jspdemo;
 import java.io.PrintStream;
 import java.util.Iterator;
 
+import org.apache.commons.io.output.ByteArrayOutputStream;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.ext.AfterCompose;
 import org.zkoss.zk.ui.metainfo.Annotation;
 import org.zkoss.zk.ui.sys.ComponentCtrl;
+import org.zkoss.zul.Html;
 import org.zkoss.zul.Window;
 
 /**
@@ -45,7 +47,14 @@ public class MyWindow extends Window implements AfterCompose{
 
 	public void afterCompose() {
 		System.out.println("MyWindow::afterCompose(): start print Annotation...");
-		recursivePrint(this, System.out, 0);
+		ByteArrayOutputStream ab = new ByteArrayOutputStream();
+		PrintStream aPrintStream = new PrintStream(ab);
+		recursivePrint(this, aPrintStream, 0);
+		
+		Html infoHtml = (Html) this.getFellowIfAny("info");
+		if(infoHtml!=null)
+			infoHtml.setContent("<pre>"+new String(ab.toByteArray())+"</pre>");
+		
 	}
 	/**
 	 * 
@@ -85,7 +94,6 @@ public class MyWindow extends Window implements AfterCompose{
 		String srClss=comp.getClass().toString();
 		srClss = srClss.substring(srClss.lastIndexOf(".")+1);
 		ComponentCtrl compCtrl = (ComponentCtrl)comp;
-		
 		sb.append("->"+srClss+"-"+comp.getId()+"=")
 			.append(compCtrl.getAnnotations().size()+" : ")
 			.append(compCtrl.getAnnotatedProperties().size());

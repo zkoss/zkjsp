@@ -29,7 +29,7 @@ public class SystemWideInitiator implements Initiator, InitiatorExt {
 	@Override
 	public void doInit(Page arg0, Map<String, Object> arg1) throws Exception {
 		// TODO Auto-generated method stub
-		// System.out.println(" initiator set value");
+		System.out.println(" initiator set value");
 		arg0.setAttribute("System-wide initiator test value", "inited value", Page.REQUEST_SCOPE);
 	}
 

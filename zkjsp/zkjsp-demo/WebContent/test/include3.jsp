@@ -20,7 +20,7 @@
 	}
 	</z:zscript>
 	<z:window use="MyWindow" title="out side window" />
-	<jsp:include page="/test/window.zul" />
+	<jsp:include page="/test/grid.zul" />
 </z:page>
 </body>
 </html>

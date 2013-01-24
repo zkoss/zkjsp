@@ -6,10 +6,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
 </head>
 <body>
 <z:page>
+<h2>You shall see a grid bellow.</h2>
     <z:div id="div"/>
     <z:zscript>
      	Executions.createComponents("grid.zul", div,null);

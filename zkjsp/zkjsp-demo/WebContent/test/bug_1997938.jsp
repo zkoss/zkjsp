@@ -8,6 +8,14 @@
 </head>
 <body>
 <h1>[ 1997938 ] ZscriptTag may cause NullPointerException</h1>
+<p>if everything works fine, you show see this message, and the content of Macro Window will be:
+
+</p>
+<ol>
+	<li>Zscript var1</li>
+	<li>this var is in zstest.zs!!!</li>
+</ol>
+
 	<z:page id="includee">
 		<z:zscript/>
 		<z:zscript src="/test/zstest.zs"/>

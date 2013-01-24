@@ -1,10 +1,16 @@
 <?page id="P"?>
 <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
 <n:body>
-	<grid width="100px">
+	<grid width="300px">
 		<columns menupopup="auto">
 			<column label="Author" />
+			<column label="Name" />
 		</columns>
+		<rows>
+			<row>Ian
+				<cell> This is a book!</cell>
+			</row>
+		</rows>
 	</grid>
 </n:body>
 </zk>
