@@ -29,19 +29,19 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>jspsrc</name>
+			<name>src_zuljsp</name>
 			<type>2</type>
-			<location>D:/java/workspace/zkcurrent/zk6/zkjsp/zuljsp/src</location>
+			<locationURI>PARENT-1-PROJECT_LOC/zuljsp/src</locationURI>
 		</link>
 		<link>
-			<name>jspsrc2</name>
+			<name>src_zuljsp_archive</name>
 			<type>2</type>
-			<location>D:/java/workspace/zkcurrent/zk6/zkjsp/zuljsp/src2</location>
+			<locationURI>PARENT-1-PROJECT_LOC/zuljsp/src/archive</locationURI>
 		</link>
 		<link>
 			<name>toolsrc</name>
 			<type>2</type>
-			<location>D:/java/workspace/zkcurrent/zk6/zkjsp/tool/src</location>
+			<locationURI>PARENT-1-PROJECT_LOC/tool/src</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
