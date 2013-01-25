@@ -18,14 +18,15 @@ Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.jsp.zul.impl;
 
-import java.io.Writer;
 import java.io.IOException;
+import java.io.Writer;
 
+import javax.el.ELContext;
+import javax.el.ELResolver;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.jsp.PageContext;
-import javax.servlet.jsp.el.ELException;
 
 import org.zkoss.web.servlet.xel.RequestContext;
 import org.zkoss.xel.VariableResolver;
@@ -61,13 +62,18 @@ public class PageRequestContext implements RequestContext {
 	}
 	public VariableResolver getVariableResolver() {
 		return new VariableResolver(){
-			javax.servlet.jsp.el.VariableResolver vr = _pgctx.getVariableResolver();
-			public Object resolveVariable(String arg0) throws XelException {
-				try {
-					return vr.resolveVariable(arg0);
-				} catch (ELException e) {
-					throw new XelException(e);
-				}
+			ELContext elCtxt = _pgctx.getELContext();
+			ELResolver elResolver = elCtxt.getELResolver();
+//			javax.servlet.jsp.el.VariableResolver vr = _pgctx.getVariableResolver();
+			
+			public Object resolveVariable(String varName) throws XelException {
+				return elResolver.getValue(elCtxt, null, varName);
+//				try {
+//					
+//					return vr.resolveVariable(arg0);
+//				} catch (javax.servlet.jsp.el.ELException e) {
+//					throw new XelException(e);
+//				}
 			}
 		};//end of class...
 	}

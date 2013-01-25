@@ -18,57 +18,47 @@ Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.jsp.zul.impl;
 
-import java.io.StringWriter;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletContext;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.JspContext;
-import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
-import javax.servlet.jsp.el.ELException;
+import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.JspFragment;
 
 import org.zkoss.util.logging.Log;
-import org.zkoss.web.servlet.Charsets;
-import org.zkoss.web.servlet.xel.RequestContexts;
 import org.zkoss.web.servlet.http.Https;
-import org.zkoss.xel.VariableResolver;
-import org.zkoss.xel.XelException;
-
+import org.zkoss.web.servlet.xel.RequestContexts;
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.WebApp;
 import org.zkoss.zk.ui.Desktop;
-import org.zkoss.zk.ui.Page;
-import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Execution;
+import org.zkoss.zk.ui.Page;
 import org.zkoss.zk.ui.Richlet;
 import org.zkoss.zk.ui.RichletConfig;
+import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.UiException;
+import org.zkoss.zk.ui.WebApp;
+import org.zkoss.zk.ui.http.ExecutionImpl;
+import org.zkoss.zk.ui.http.I18Ns;
+import org.zkoss.zk.ui.http.WebManager;
+import org.zkoss.zk.ui.impl.Attributes;
+import org.zkoss.zk.ui.impl.RequestInfoImpl;
 import org.zkoss.zk.ui.metainfo.LanguageDefinition;
 import org.zkoss.zk.ui.metainfo.PageDefinitions;
 import org.zkoss.zk.ui.metainfo.ZScript;
-import org.zkoss.zk.ui.sys.ExecutionCtrl;
-import org.zkoss.zk.ui.sys.UiFactory;
-import org.zkoss.zk.ui.sys.RequestInfo;
-import org.zkoss.zk.ui.sys.WebAppCtrl;
-import org.zkoss.zk.ui.sys.SessionsCtrl;
-import org.zkoss.zk.ui.sys.SessionCtrl;
 import org.zkoss.zk.ui.sys.PageCtrl;
+import org.zkoss.zk.ui.sys.RequestInfo;
+import org.zkoss.zk.ui.sys.SessionCtrl;
+import org.zkoss.zk.ui.sys.SessionsCtrl;
+import org.zkoss.zk.ui.sys.UiFactory;
+import org.zkoss.zk.ui.sys.WebAppCtrl;
 import org.zkoss.zk.ui.util.Initiator;
-import org.zkoss.zk.ui.impl.Attributes;
-import org.zkoss.zk.ui.impl.RequestInfoImpl;
-import org.zkoss.zk.ui.http.I18Ns;
-import org.zkoss.zk.ui.http.WebManager;
-import org.zkoss.zk.ui.http.ExecutionImpl;
 
 /**
  * A skeletal class to implement the root ZK tag.

@@ -103,13 +103,11 @@ public class ZkELResolverImpl extends ELResolver {
 
 	public void setValue(ELContext ctx, Object base, Object property, Object value)
 			throws PropertyNotFoundException, PropertyNotWritableException, ELException {
-		
-		//TODO: do nothing?
+		// do nothing, we are not JSF.
 	}
 
 	public boolean isReadOnly(ELContext ctx, Object base, Object property)
 	throws PropertyNotFoundException, ELException {
-		//TODO: is that simple?
 		if (ctx == null)
 			throw new IllegalArgumentException();
 		
@@ -118,14 +116,14 @@ public class ZkELResolverImpl extends ELResolver {
 	}
 	
 	public Iterator<FeatureDescriptor> getFeatureDescriptors(ELContext ctx, Object base) {
-		//TODO: ARE YOU SURE?
+		//do nothing, this part is for supporting Tools.
 		return null;
 	}
 	/**
 	 * 
 	 */
 	public Class<?> getCommonPropertyType(ELContext ctx, Object base) {
-		//TODO: ..............................
+		//do nothing, this part is for supporting Tools.
 		if (base==null) return String.class;
 		return null;
 	}

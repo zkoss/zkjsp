@@ -22,7 +22,6 @@ import java.util.Collection;
 
 import org.zkoss.lang.Classes;
 import org.zkoss.xel.VariableResolver;
-import org.zkoss.zk.ui.Page;
 import org.zkoss.zk.ui.UiException;
 
 /**
