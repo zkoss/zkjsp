@@ -119,10 +119,10 @@
 								<z:ui tag="hp-link" url="./head.jsp" label="Head Demo" />
 								</z:row>
 	
-								<z:row>
+								<%-- <z:row>
 								ZK Flashchar Demo: 
 								<z:ui tag="hp-link" url="./flashchar.jsp" label="Flashchar Demo" />
-								</z:row>
+								</z:row>--%>
 	
 								<z:row>
 								ZK Frozen Demo: 
@@ -163,7 +163,7 @@
 								ZK Fusionchart Demo: 
 								<z:ui tag="hp-link" url="./fusionchart.jsp" label="Fusionchart Demo" />
 								</z:row>
-								<!-- ***** add new Demo case here! ***** -->
+								<%-- ***** add new Demo case here! ***** --%>
 							</z:rows>
 						</z:grid>
 						</z:tabpanel>
@@ -287,7 +287,7 @@
 										url="./test/bug/zkjsp-11.jsp" label="zkjsp-11.jsp" />
 								</z:row>
 								
-								<!-- ***** add new test case here! ***** -->
+								<%-- ***** add new test case here! ***** --%>
 								</z:rows>
 							</z:grid>
 						</z:tabpanel>
