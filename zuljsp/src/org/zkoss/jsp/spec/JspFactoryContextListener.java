@@ -20,7 +20,6 @@ package org.zkoss.jsp.spec;
 
 import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
-import javax.servlet.ServletContext;
 
 import org.zkoss.lang.Classes;
 import org.zkoss.lang.SystemException;
@@ -37,25 +36,25 @@ public class JspFactoryContextListener implements ServletRequestListener {
 	}
 
 	public void requestInitialized(ServletRequestEvent servRequestEvt) {
-	/* find out if this container is Jsp2.1 container or jsp2.0 container.
+	/* find out if this container is Jsp2.1 container .
 	 * 1. Find out if interface JspApplicationContext(Since JSP 2.1) is exist.
 	 * 2. If so, use v21 JspFactory
-	 * 3. Use v20 JspFactory otherwise. 
 	 */
 		if (hasInitiated) return;
 		try {
 			 
 			Classes.forNameByThread("javax.servlet.jsp.JspApplicationContext");
 			
-			Class initorClass =
-				Classes.forNameByThread("org.zkoss.jsp.spec.v21.ZkELInitiatorImpl");
+			Class<?> initorClass = getClassObject("org.zkoss.jsp.spec.v21.ZkELInitiatorImpl");
 			
 			ZkELInitiator initiator = (ZkELInitiator) initorClass.newInstance();
 			
 			initiator.init(servRequestEvt.getServletContext());
 			
 		} catch (ClassNotFoundException e) {
-			initJspFactory("org.zkoss.jsp.spec.v20.JspFactoryImpl");
+			throw new SystemException("Since version 2.3, ZK JSP EL Context adoption support only compatible with JSP 2.1+ ", e);
+		}catch (SystemException e) {
+			throw e;
 		} catch (Exception e) {
 			throw new SystemException(e);
 		}
@@ -63,9 +62,9 @@ public class JspFactoryContextListener implements ServletRequestListener {
 	}
 	
 	
-	private void initJspFactory(String facClassName) {
+	private static Class<?> getClassObject(String facClassName) {
 		try {
-			Classes.forNameByThread(facClassName);
+			return Classes.forNameByThread(facClassName);
 		} catch (ClassNotFoundException e) {
 			throw new SystemException(e);
 		}

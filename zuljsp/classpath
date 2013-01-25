@@ -9,9 +9,10 @@
 ../dist/lib/ckez.jar
 ../dist/lib/timelinez.jar
 ../dist/lib/timeplotz.jar
-../dist/lib/ext/servlet-api.jar
-../dist/lib/ext/jsp-api.jar
 ../dist/lib/calendar.jar
 ../dist/lib/pivottable.jar
 ../dist/lib/zss.jar
 ../dist/lib/fusionchart.jar
+../dist/lib/ext/servlet-api.jar
+../dist/lib/ext/jsp-api.jar
+../dist/lib/ext/el-api.jar
