@@ -19,6 +19,7 @@ Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 package org.zkoss.jsp.zul.impl;
 
 import javax.servlet.jsp.JspContext;
+import javax.servlet.jsp.JspFactory;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.JspException;
 
@@ -37,18 +38,27 @@ public class Jsps {
 	 */
 	public static final PageContext getPageContext(JspContext jspctx)
 	throws JspException {
+		
 		if (jspctx instanceof PageContext)
 			return (PageContext)jspctx;
+		
+		PageContext pgctx = null;
+		if(jspctx.getELContext()!=null)
+			pgctx = (PageContext) jspctx.getELContext().getContext(PageContext.class);
+		
 		try {
-			final PageContext pgctx = (PageContext)
-				jspctx.getExpressionEvaluator().evaluate(
-				"${pageContext}", PageContext.class, null, null);
-			if (pgctx != null)
-				return pgctx;
-			throw new JspException("Unable to retrieve PageContext from "+jspctx);
+			if(pgctx==null){
+				pgctx = (PageContext) jspctx.getExpressionEvaluator().evaluate( 
+						"${pageContext}", PageContext.class, null, null);
+			}
 		} catch (javax.servlet.jsp.el.ELException ex) {
 			throw new JspException("Unable to retrieve PageContext from "+jspctx, ex);
 		}
+
+		if (pgctx != null)
+			return pgctx;
+		
+		throw new JspException("Unable to retrieve PageContext from "+jspctx);
 	}
 	private static final String PAGE_KEY = Page.class.getName()+"!KEY";
 	/**

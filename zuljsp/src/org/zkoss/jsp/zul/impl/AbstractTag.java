@@ -18,11 +18,7 @@ Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.jsp.zul.impl;
 
-import javax.servlet.jsp.JspContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
-import javax.servlet.jsp.el.ELException;
-
-import org.zkoss.lang.Classes;
 
 /**
  * The skeletal class for implementing the generic JSP tags.
