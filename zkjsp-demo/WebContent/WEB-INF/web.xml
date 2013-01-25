@@ -36,11 +36,6 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 		<display-name>ZK Jsp Factory initiator</display-name>
 		<listener-class>org.zkoss.jsp.spec.JspFactoryContextListener</listener-class>
 	</listener>
-	<listener>
-		<description>ZK JspTags Environment Validator</description>
-		<display-name>ZK Jsp Environment Validator</display-name>
-		<listener-class>org.zkoss.jsp.zul.impl.EnvironmentValidateListener</listener-class>
-	</listener>
 	<servlet>
 		<description>ZK loader for ZUML pages</description>
 		<servlet-name>zkLoader</servlet-name>
