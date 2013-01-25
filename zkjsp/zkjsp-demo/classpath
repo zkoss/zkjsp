@@ -7,6 +7,6 @@
 ../dist/lib/zkex.jar
 ../dist/lib/zkmax.jar
 ../dist/lib/zkbind.jar
-../dist/lib/ext2/jsp-api.jar
-../dist/lib/ext2/el-api.jar
-../dist/lib/ext2/servlet-api.jar
+../dist/lib/ext/jsp-api.jar
+../dist/lib/ext/el-api.jar
+../dist/lib/ext/servlet-api.jar

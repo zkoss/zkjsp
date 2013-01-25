@@ -20,10 +20,10 @@
 			<h1 id="zk-logo">
 				<img src="./resource/top_zk_logo.png" title="ZK Logo" alt="ZK Logo">
 			</h1>
-			<h1 id="topic">ZK JSP Tags - enrich your vocabulary and have fun!</h1>
+			<h1 id="topic">ZK JSP Tags - !</h1>
 		</div>
 		
-		<div class="messages main-block"><!-- ********** left block ********** -->
+		<div class="messages main-block"><%-- ********** left block ********** --%>
 			<div class="messageboard-container">
 			<z:page>	
 				<z:tabbox width="100%" height="800px" apply="org.zkoss.jspdemo.HomePageCtrl">
@@ -32,7 +32,7 @@
 						<z:tab label="Test Cases"/>
 					</z:tabs>
 					<z:tabpanels>
-						<z:tabpanel style="overflow:auto" ><%-- JSP Demo Cases --%>
+						<z:tabpanel style="overflow:auto" ><%-- ***** JSP Demo Cases ***** --%>
 						<z:grid>
 							<z:columns>
 								<z:column align="right" />
@@ -163,7 +163,7 @@
 								ZK Fusionchart Demo: 
 								<z:ui tag="hp-link" url="./fusionchart.jsp" label="Fusionchart Demo" />
 								</z:row>
-								
+								<!-- ***** add new Demo case here! ***** -->
 							</z:rows>
 						</z:grid>
 						</z:tabpanel>
@@ -286,6 +286,8 @@
 										<z:ui tag="hp-link"
 										url="./test/bug/zkjsp-11.jsp" label="zkjsp-11.jsp" />
 								</z:row>
+								
+								<!-- ***** add new test case here! ***** -->
 								</z:rows>
 							</z:grid>
 						</z:tabpanel>

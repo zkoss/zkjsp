@@ -18,10 +18,10 @@ Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.jspdemo;
 
+import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Iterator;
 
-import org.apache.commons.io.output.ByteArrayOutputStream;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.ext.AfterCompose;
 import org.zkoss.zk.ui.metainfo.Annotation;
@@ -34,6 +34,7 @@ import org.zkoss.zul.Window;
  * @author ian
  */
 public class MyWindow extends Window implements AfterCompose{
+	private static final long serialVersionUID = 1788318990308436631L;
 	
 	private String myValue;
 	/**
@@ -81,14 +82,16 @@ public class MyWindow extends Window implements AfterCompose{
 		for(int i=level;i>0;i--)out.print(" |");
 		dump(sb,comp);
 		out.println(sb);
-		for(Iterator itor = comp.getChildren().iterator();itor.hasNext();)
-			recursivePrint((Component) itor.next(),out,level+1);
+		for(Iterator<Component> itor = comp.getChildren().iterator();itor.hasNext();)
+			recursivePrint( itor.next(),out,level+1);
 	}
+	
 	/**
 	 * 
 	 * @param sb
 	 * @param comp
 	 */
+	@SuppressWarnings("deprecation")
 	private static void dump(StringBuffer sb, Component comp) 
 	{
 		String srClss=comp.getClass().toString();
@@ -98,12 +101,12 @@ public class MyWindow extends Window implements AfterCompose{
 			.append(compCtrl.getAnnotations().size()+" : ")
 			.append(compCtrl.getAnnotatedProperties().size());
 		String prop;
-		for (Iterator it = compCtrl.getAnnotations().iterator(); it.hasNext();) {
-			Annotation annot = (Annotation) it.next();
+		for (Iterator<Annotation> it = compCtrl.getAnnotations().iterator(); it.hasNext();) {
+			Annotation annot = it.next();
 			sb.append(" self").append(annot);
 		}
-		for (Iterator it = compCtrl.getAnnotatedProperties().iterator(); it.hasNext();) {
-			prop = (String) it.next();
+		for (Iterator<String> it = compCtrl.getAnnotatedProperties().iterator(); it.hasNext();) {
+			prop = it.next();
 			sb.append(" ").append(prop)
 			.append(compCtrl.getAnnotations(prop));
 		}
