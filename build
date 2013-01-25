@@ -319,20 +319,20 @@ function invoke_ant
 	fi
 	
 	### add classpath2 because zuljsp needs two cycles build progress for jsp20 & jsp21
-	local CP2=
-	if [ -f classpath2 ] ; then
+#	local CP2=
+#	if [ -f classpath2 ] ; then
 		#retrieve path
-		CP2=$(cat classpath2 | tr '\n' ':')
-		CP2=${CP2%:}
+#		CP2=$(cat classpath2 | tr '\n' ':')
+#		CP2=${CP2%:}
 
 		#javadoc.class.path shall not contain '.', because xdoclet will
 		#ignore files that are found in classpath
-		DCP2=$(echo $CP2 | sed -e 's/:\.:/:/g' -e 's/^\.://' -e 's/:\.$//')
-		if [ "$TERM" = "cygwin" ] ; then
-			DCP2=$(safe_cygpath "-mp" "$DCP2")
+#		DCP2=$(echo $CP2 | sed -e 's/:\.:/:/g' -e 's/^\.://' -e 's/:\.$//')
+#		if [ "$TERM" = "cygwin" ] ; then
+#			DCP2=$(safe_cygpath "-mp" "$DCP2")
 				#Don't convert CP because it is used by bash directly
-		fi
-	fi
+#		fi
+#	fi
 	
 	if [ "$verbose" != "" ] ; then
 		echo "CP: $CP"
@@ -452,11 +452,7 @@ function invoke_ant
 		)
 		fi
 	else
-		#a=$(pwd)
-		#echo "=== $a"
-
 		CLASSPATH="$DCP" ANT_OPTS=-Xmx160M 
-		#echo "---- $CLASSPATH"
 		ant $verbose $class_test \
 		$doall -Dformat="$format" -Ddeploy="$deploy" \
 		-Dserver.libs="$server_libs" -Dstart.service="$start_service" \
@@ -475,23 +471,23 @@ function invoke_ant
 		-Droot.context=$rootContext \
 		$dfnList -buildfile ../build.xml $1
 		
-		CLASSPATH="$DCP2" ANT_OPTS=-Xmx160M ant $verbose $class_test \
-		$doall -Dformat="$format" -Ddeploy="$deploy" \
-		-Dserver.libs="$server_libs" -Dstart.service="$start_service" \
-		-Djboss.profile="$jboss_profile" -Djboss.ear="$jboss_ear" \
-		-Djboss.home="$jboss_home" -Dtomcat.home="$tomcat_home" \
-		-Djs.trim=$jstrim -Dzipjs=$zipjslist\
-		-Dsrc.dir=src2\
-		-Dwar.libs="$war_libs" -Dbasedir=. \
-		-Dear.libs="$ear_libs" -Dimport.libs="$import_libs" \
-		-Dproject.name="$2" -Dproject.version="$prjver" \
-		-Dsource.version="$srcver" -Dtarget.version="$tgtver" \
-		-Dhaltonerror=$haltonerror -Dout.dir=$outdir \
-		-Ddebug=$this_dflag -Doptimize=$this_oflag ${nojc} \
-		-Dshare.javadoc.dir="$javadocdir" \
-		-Djavadoc.class.path="$DCP2" -Dapp.name=$app $unziplist \
-		-Droot.context=$rootContext \
-		$dfnList -buildfile ../build.xml $1
+#		CLASSPATH="$DCP2" ANT_OPTS=-Xmx160M ant $verbose $class_test \
+#		$doall -Dformat="$format" -Ddeploy="$deploy" \
+#		-Dserver.libs="$server_libs" -Dstart.service="$start_service" \
+#		-Djboss.profile="$jboss_profile" -Djboss.ear="$jboss_ear" \
+#		-Djboss.home="$jboss_home" -Dtomcat.home="$tomcat_home" \
+#		-Djs.trim=$jstrim -Dzipjs=$zipjslist\
+#		-Dsrc.dir=src2\
+#		-Dwar.libs="$war_libs" -Dbasedir=. \
+#		-Dear.libs="$ear_libs" -Dimport.libs="$import_libs" \
+#		-Dproject.name="$2" -Dproject.version="$prjver" \
+#		-Dsource.version="$srcver" -Dtarget.version="$tgtver" \
+#		-Dhaltonerror=$haltonerror -Dout.dir=$outdir \
+#		-Ddebug=$this_dflag -Doptimize=$this_oflag ${nojc} \
+#		-Dshare.javadoc.dir="$javadocdir" \
+#		-Djavadoc.class.path="$DCP2" -Dapp.name=$app $unziplist \
+#		-Droot.context=$rootContext \
+#		$dfnList -buildfile ../build.xml $1
 		
 	fi
 
