@@ -18,6 +18,7 @@ Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.jsp.spec.v21;
 
+import java.beans.FeatureDescriptor;
 import java.util.Iterator;
 
 import javax.el.ELContext;
@@ -27,7 +28,7 @@ import javax.el.PropertyNotFoundException;
 import javax.el.PropertyNotWritableException;
 import javax.servlet.jsp.JspContext;
 
-import org.zkoss.jsp.spec.JspVariableResolver;
+import org.zkoss.jsp.spec.ZkJspExecutionVars;
 import org.zkoss.zk.ui.Executions;
 
 /**
@@ -36,6 +37,7 @@ import org.zkoss.zk.ui.Executions;
  */
 public class ZkELResolverImpl extends ELResolver {
 
+	public ZkELResolverImpl() {}
 	/**
 	 * 
 	 * @param ctx
@@ -46,7 +48,7 @@ public class ZkELResolverImpl extends ELResolver {
 	{
 		JspContext jspCtx = (JspContext)ctx.getContext(JspContext.class);
 		try {
-			return new JspVariableResolver(jspCtx).resolveVariable(name);
+			return ZkJspExecutionVars.resolveVariable(name, jspCtx);
 		} catch (RuntimeException e) {
 			throw e;
 		} catch (Exception e) {
@@ -60,16 +62,11 @@ public class ZkELResolverImpl extends ELResolver {
 	private static boolean isExecutable() {
 		return Executions.getCurrent()!= null;
 	}
-	/**
-	 * 
-	 */
-	public ZkELResolverImpl() {
-	}
+
 
 	/*Implementation Logic(non-Javadoc)
-	 * 1.
-	 * 2.
-	 * 3.
+	 * 1.check if inside Zk Execution
+	 * 2. retrieve value from ZK Execution, set property resolved true if there's value.
 	 */
 	public Object getValue(ELContext ctx, Object base, Object property)
 	throws PropertyNotFoundException, ELException {
@@ -87,12 +84,8 @@ public class ZkELResolverImpl extends ELResolver {
 		}
 		return null;
 	}
-	/*Implementation Logic(non-Javadoc)
-	 * 1.
-	 * 2.
-	 * 3.
-	 */
-	public Class getType(ELContext ctx, Object base, Object property)
+
+	public Class<?> getType(ELContext ctx, Object base, Object property)
 	throws PropertyNotFoundException, ELException {
 		if (ctx == null)
 			throw new IllegalArgumentException();
@@ -107,42 +100,32 @@ public class ZkELResolverImpl extends ELResolver {
 		}
 		return null;
 	}
-	/* Implementation Logic(non-Javadoc)
-	 * 1.
-	 * 2.
-	 * 3.
-	 */
-	public void setValue(ELContext ctx, Object base, Object property,
-	Object value)
-	throws PropertyNotFoundException, PropertyNotWritableException, ELException {
+
+	public void setValue(ELContext ctx, Object base, Object property, Object value)
+			throws PropertyNotFoundException, PropertyNotWritableException, ELException {
+		
+		//TODO: do nothing?
 	}
-	/*
-	 * Implementation Logic(non-Javadoc)
-	 * 1.
-	 * 2.
-	 * 3.
-	 */
+
 	public boolean isReadOnly(ELContext ctx, Object base, Object property)
 	throws PropertyNotFoundException, ELException {
+		//TODO: is that simple?
 		if (ctx == null)
 			throw new IllegalArgumentException();
-
+		
 		if (base == null) return true;
 		return false;
 	}
-	/*
-	 * Implementation Logic(non-Javadoc)
-	 * 1.
-	 * 2.
-	 * 3.
-	 */
-	public Iterator getFeatureDescriptors(ELContext ctx, Object base) {
+	
+	public Iterator<FeatureDescriptor> getFeatureDescriptors(ELContext ctx, Object base) {
+		//TODO: ARE YOU SURE?
 		return null;
 	}
 	/**
 	 * 
 	 */
-	public Class getCommonPropertyType(ELContext ctx, Object base) {
+	public Class<?> getCommonPropertyType(ELContext ctx, Object base) {
+		//TODO: ..............................
 		if (base==null) return String.class;
 		return null;
 	}
