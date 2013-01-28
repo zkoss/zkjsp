@@ -25,7 +25,7 @@ public class ZkJspExecutionVars {
 	 * 
 	 * @param name the name to retrieve instance.
 	 * @param jspContext 
-	 * @return
+	 * @return value from jspContext by given name. 
 	 */
 	public static Object resolveVariable(String name, JspContext jspContext){
 		final Execution exec = Executions.getCurrent();

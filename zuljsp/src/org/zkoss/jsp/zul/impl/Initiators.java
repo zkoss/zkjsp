@@ -34,7 +34,7 @@ import org.zkoss.zk.ui.util.Initiator;
 import org.zkoss.zk.ui.util.InitiatorExt;
 
 /**
- *  A helper class used to handle {@link Initiator} in jsp.
+ *  A helper class used to handle {@link Initiator} & {@link InitiatorExt} method call in ZK JSP.
  * 
  * @author Ian Tsai
  *
@@ -136,7 +136,7 @@ public class Initiators{
 			}
 		}
 	}
-	/** Invokes {@link Initiator#doCatch}.
+	/** Invokes {@link InitiatorExt#doCatch}.
 	 * It eats all exception without throwing one (but logging).
 	 * Caller has to re-throw the exception.
 	 */
@@ -163,7 +163,8 @@ public class Initiators{
 			}
 		}
 	}
-	/** Invokes {@link Initiator#doFinally}.
+	/** 
+	 * Invokes {@link InitiatorExt#doFinally}.
 	 */
 	public void doFinally() {
 		Throwable t = null;

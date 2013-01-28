@@ -40,7 +40,7 @@ import org.zkoss.zk.ui.util.InitiatorExt;
 
 /**
  * 
- * A Tag map to the ZK {@link Initiator}.
+ * A Tag map to the ZK {@link Initiator} & {@link InitiatorExt}.
  * Implemented by an initiator that will be invoked if it is specified
  * in the init directive.
  *
