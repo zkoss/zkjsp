@@ -36,6 +36,7 @@ public class Jsps {
 	
 	/** Reteurns the page context of the specified JSP context.
 	 */
+	@SuppressWarnings("deprecation")
 	public static final PageContext getPageContext(JspContext jspctx)
 	throws JspException {
 		

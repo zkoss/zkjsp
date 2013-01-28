@@ -20,7 +20,7 @@
 			<h1 id="zk-logo">
 				<img src="./resource/top_zk_logo.png" title="ZK Logo" alt="ZK Logo">
 			</h1>
-			<h1 id="topic">ZK JSP Tags - !</h1>
+			<h1 id="topic">ZK JSP Tags - Demonstration and Testing</h1>
 		</div>
 		
 		<div class="messages main-block"><%-- ********** left block ********** --%>
