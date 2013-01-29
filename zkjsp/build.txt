@@ -1,3 +1,42 @@
+
+
+
+2013-01-28 [Ian Tsai wrote:] pre Release Build check:
+
+In order to build an Official Release of Zk JSP, you have to:
+
+	+. maybe we should rethink about the current versioning: 
+			We can cut the direct connection between *.tld to zkjsp version.
+
+	1. check every "version" setting in these files:
+			/trunk/zkjsp/build.setting
+			/trunk/zkjsp/zkdoc/zkjsp-release-note
+			/trunk/zkjsp/zuljsp/pom.xml
+			/trunk/zkjsp/zuljsp/src/archive/META-INF/MANIFEST.MF
+			/trunk/zkjsp/zuljsp/src/archive/META-INF/zuljsp.tld
+			/trunk/zkjsp/zuljsp/src/archive/META-INF/zweb.core.dsp.tld
+			/trunk/zkjsp/zuljsp/version
+		please make sure the "-FL" is removed from: /trunk/zkjsp/build.setting
+		and don't forget to put it back after release and version has been accumulated.
+
+	2. Build Command execution sequesnce
+		./build clean
+			to clean up all temporary folders and built files
+		./build
+			build zuljsp.jar
+		./build doc
+			build the javadoc for ZK JSP
+			will create a folder under: [cygwin_HD_drive]/home/[user_name]/prj/javadoc/zuljsp
+		./sub-release JspTags official
+			build 3 zips for ZK JSP: bin, src and demo package under: [cygwin_root]/tmp/zk/
+
+
+
+
+
+
+
+
 build - a tool to build or clean up Java projects
 Copyright (C) 2001-2004 Potix Corporation. All Rights Reserved.
 
