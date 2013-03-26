@@ -10,7 +10,7 @@
 <body>
 <!--You shall see ClassNotFoundException -->
 	<z:page>
-		<z:window apply="org.zkoss.jspdemo.MyComposer2">
+		<z:window apply="org.zkoss.jspdemo.MyComposer">
 		</z:window>
 	</z:page>
 </body>
