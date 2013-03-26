@@ -298,7 +298,7 @@
 	</div>
 	<div class="demoContent main-block" ><!-- ********** right block ********** -->
 		<z:page>
-			<z:toolbarbutton id="openNewBrowserBtn" label="none" href="./index2.jsp"/>
+			<z:toolbarbutton id="openNewBrowserBtn" label="none" href="/"/>
 			<z:iframe id="demoIFrame" width="100%" height="800px" use="org.zkoss.jspdemo.ui.HomePageIframe"/>
 		</z:page>	
 		
