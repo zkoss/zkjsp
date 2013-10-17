@@ -18,10 +18,10 @@
 			
 			<z:listbox id="libox" width="100%" multiple="true" vflex="true">
 				<z:listhead  sizable="true">
-					<z:listheader label="Name" sort="auto" width="25%" image="/img/coffee.gif"/>
-					<z:listheader label="Gender" sort="auto" width="25%" image="/img/folder.gif"/>
-					<z:listheader label="Age" sort="auto" width="25%" align="center" image="/img/cubfirs.gif"/>
-					<z:listheader label="Description" width="25%" sort="auto" image="/img/home.gif"/>
+					<z:listheader label="Name" sort="auto" width="25%" image="/img/archive.png"/>
+					<z:listheader label="Gender" sort="auto" width="25%" image="/img/archive.png"/>
+					<z:listheader label="Age" sort="auto" width="25%" align="center" image="/img/archive.png"/>
+					<z:listheader label="Description" width="25%" sort="auto" image="/img/archive.png"/>
 				</z:listhead>
 				<z:auxhead>
 					<z:auxheader label="All Header" style="font-weight:bold; color:red;" align="center" colspan="4"/>
