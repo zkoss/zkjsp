@@ -21,16 +21,16 @@
 		<z:rows id="myrows" style="position:relative;">
 			<z:row>0<z:label value="test0"/></z:row> 
 			<z:row>1<z:label value="test1"/></z:row>
-			<z:row>0<z:label value="test0"/></z:row> 
-			<z:row>1<z:label value="test1"/></z:row>
-			<z:row>0<z:label value="test0"/></z:row> 
-			<z:row>1<z:label value="test1"/></z:row>
-			<z:row>0<z:label value="test0"/></z:row> 
-			<z:row>1<z:label value="test1"/></z:row>
-			<z:row>0<z:label value="test0"/></z:row> 
-			<z:row>1<z:label value="test1"/></z:row>
-			<z:row>0<z:label value="test0"/></z:row> 
-			<z:row>1<z:label value="test1"/></z:row>
+			<z:row>2<z:label value="test0"/></z:row> 
+			<z:row>3<z:label value="test1"/></z:row>
+			<z:row>4<z:label value="test0"/></z:row> 
+			<z:row>5<z:label value="test1"/></z:row>
+			<z:row>6<z:label value="test0"/></z:row> 
+			<z:row>7<z:label value="test1"/></z:row>
+			<z:row>8<z:label value="test0"/></z:row> 
+			<z:row>9<z:label value="test1"/></z:row>
+			<z:row>10<z:label value="test0"/></z:row> 
+			<z:row>11<z:label value="test1"/></z:row>
 		</z:rows> 
 	</z:grid>
 </z:page>

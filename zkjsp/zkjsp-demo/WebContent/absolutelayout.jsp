@@ -13,7 +13,7 @@
 		<z:absolutechildren x="100" y="100">
 			<z:label value="child at (100, 100)" />
 			<z:absolutelayout width="300px" height="300px" style="background-color: #D8D8D8;">
-				<z:absolutechildren x="100" y="200">
+				<z:absolutechildren x="100" y="200" style="background-color: yellow;">
 					<z:label value="child at inner (100, 200), outer (200, 300)" />
 				</z:absolutechildren>
 			</z:absolutelayout>
