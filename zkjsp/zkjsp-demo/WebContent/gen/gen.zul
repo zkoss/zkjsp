@@ -1,0 +1,113 @@
+<?page id="zkjsp" title="ZK Jsp Generator" cacheable="false" 
+	language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+	<borderlayout width="100%">
+		<north title="Generate" size="50%" collapsible="true">
+			<borderlayout width="100%">
+				<west title="Steps : " size="200px" flex="true"
+					maxsize="250" splittable="true" collapsible="true">
+					<panel width="100%" border="none">
+						<panelchildren>
+							<html><![CDATA[
+							    <h3>Steps Generate ZK-JSP Tag</h3>
+								<ul> 
+									<li></li>
+									<li></li>
+								</ul
+							]]></html>
+						</panelchildren>
+					</panel>
+				</west>
+				<center border="none" flex="true" title="Settings:">
+					<panel border="none">
+						<panelchildren>
+							<grid fixedLayout="true">
+								<columns>
+									<column width="150px">
+										Option
+									</column>
+									<column>Content</column>
+								</columns>
+								<rows>
+									<row>
+										RepositoryPath
+										<textbox id="rpath"
+											value="D:\cygwin\home\Flyworld\projects\zkjsp\"
+											width="500px" />
+									</row>
+									<row>
+										Author
+										<textbox id="author"
+											onCreate='self.value= System.getProperty("user.name")' />
+									</row>
+									<row spans="2">
+										<checkbox id="gent"
+											label="Generate TLD files"
+											onCheck="gentld=self.checked?true:false" checked="true" />
+									</row>
+									<row spans="2">
+										<checkbox id="genj"
+											label="Generate Java tag files"
+											onCheck="genjava=self.checked?true:false" checked="true" />
+									</row>
+									<row spans="2">
+										<checkbox id="over"
+											label="Override exist files"
+											onCheck="override=self.checked?true:false" />
+									</row>
+									<row>
+										<button label="Generate"
+											onClick="gen()" />
+									</row>
+								</rows>
+							</grid>
+						</panelchildren>
+					</panel>
+				</center>
+
+				<east id="estlist" size="250px" title="Components List"
+					flex="true" maxsize="250" splittable="true" collapsible="true">
+
+					<listbox id="cmp" onCreate="getlist()" />
+
+				</east>
+			</borderlayout>
+		</north>
+		<center border="0">
+
+			<iframe width="100%" height="100%" src="/index.jsp" />
+
+		</center>
+	</borderlayout>
+	<zscript><![CDATA[ //@IMPORT
+		import tool.*;
+		import org.zkoss.zk.ui.metainfo.*;
+		import java.util.*;
+		import java.io.*;
+	]]><![CDATA[ 
+		boolean gentld = true ;
+		boolean genjava = true ;
+		boolean override = false ;
+		LanguageDefinition ld = this.page.getLanguageDefinition();   			
+		ComponentMap cmpMap = new ComponentMap();	 
+   		cmpMap.setLanguageDefinition(ld); // The component map object
+	]]><![CDATA[ //@DECLARATION
+		void gen() {    
+			ZulJspGenerator jspgenerator = new ZulJspGenerator( rpath.getValue(),
+					gentld, genjava, override,author.getValue());			
+			alert("Build : " + jspgenerator.generate(cmpMap));					
+		}
+        void getlist () {
+   			estlist.setTitle(estlist.getTitle()+"("+cmpMap.getMapSize()+"):");     			   		 	   		 	
+   			GroupsModel model = new SimpleGroupsModel(cmpMap.getMapVales(), 
+   					cmpMap.getMapKeysObj());
+   			cmp.setModel(model);
+   		}
+	]]></zscript>
+
+</zk>
