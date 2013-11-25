@@ -1,4 +1,13 @@
 	--------
+JSP Tags 2.4
+* Features:
+	ZKJSP-16: Support Navigation component set of ZK 7
+* Bugs:  
+	ZKJSP-14: EL cannot work on Weblogic
+* Upgrade Notes: 
+	None.
+
+	--------
 JSP Tags 2.3
 * Features:
 
