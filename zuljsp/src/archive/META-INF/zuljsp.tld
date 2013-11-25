@@ -195,7 +195,7 @@ Currently, it supports xul/html and xhtml.
 		<body-content>scriptless</body-content>
 		<attribute>
 			<description>
-		component delaration Name.
+		component declaration Name.
 			</description>
 			<name>name</name>
 			<required>true</required>
@@ -227,7 +227,7 @@ Currently, it supports xul/html and xhtml.
 		</attribute>
 		<attribute>
 			<description>
-		component delaration MoldURI.
+		component declaration MoldURI.
 			</description>
 			<name>moldURI</name>
 			<required>false</required>
@@ -252,7 +252,7 @@ Currently, it supports xul/html and xhtml.
 		<body-content>scriptless</body-content>
 		<attribute>
 			<description>
-		component delaration Name.
+		component declaration Name.
 			</description>
 			<name>tag</name>
 			<required>true</required>
@@ -6233,5 +6233,173 @@ Currently, it supports xul/html and xhtml.
 		</attribute>
 		<dynamic-attributes>true</dynamic-attributes>
 	</tag>
+	<!-- ZK XUL Nav Components -->
+	<tag>
+		<description>
+			Define the Nav comonent.
+		</description>
+		<name>nav</name>
+		<tag-class>org.zkoss.jsp.zul.NavTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description>
+				If false, this tag is ignored. Default: true.
+			</description>
+			<name>if</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				If true, this tag is ignored. Default: false.
+			</description>
+			<name>unless</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Default : Zul Component Nav.
+			</description>
+			<name>use</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Used to forward Event, same as ZUL's forward.
+			</description>
+			<name>forward</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>
+	<!-- ZK XUL Navbar Components -->
+	<tag>
+		<description>
+			Define the Navbar comonent.
+		</description>
+		<name>navbar</name>
+		<tag-class>org.zkoss.jsp.zul.NavbarTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description>
+				If false, this tag is ignored. Default: true.
+			</description>
+			<name>if</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				If true, this tag is ignored. Default: false.
+			</description>
+			<name>unless</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Default : Zul Component Nav.
+			</description>
+			<name>use</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Used to forward Event, same as ZUL's forward.
+			</description>
+			<name>forward</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>
+	<!-- ZK XUL Navitem Components -->
+	<tag>
+		<description>
+			Define the Navitem comonent.
+		</description>
+		<name>navitem</name>
+		<tag-class>org.zkoss.jsp.zul.NavitemTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description>
+				If false, this tag is ignored. Default: true.
+			</description>
+			<name>if</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				If true, this tag is ignored. Default: false.
+			</description>
+			<name>unless</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Default : Zul Component Nav.
+			</description>
+			<name>use</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Used to forward Event, same as ZUL's forward.
+			</description>
+			<name>forward</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>	
+	<!-- ZK XUL Navseparator Components -->
+	<tag>
+		<description>
+			Define the Navseparator comonent.
+		</description>
+		<name>navseparator</name>
+		<tag-class>org.zkoss.jsp.zul.NavseparatorTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description>
+				If false, this tag is ignored. Default: true.
+			</description>
+			<name>if</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				If true, this tag is ignored. Default: false.
+			</description>
+			<name>unless</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Default : Zul Component Nav.
+			</description>
+			<name>use</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Used to forward Event, same as ZUL's forward.
+			</description>
+			<name>forward</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>	
 	<!-- Functions -->
 </taglib>
