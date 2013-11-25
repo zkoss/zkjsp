@@ -18,9 +18,8 @@ Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.jsp.spec;
 
-import javax.servlet.ServletRequestEvent;
-import javax.servlet.ServletRequestListener;
-
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
 import org.zkoss.lang.Classes;
 import org.zkoss.lang.SystemException;
 
@@ -28,28 +27,27 @@ import org.zkoss.lang.SystemException;
  * ZK built-in varibles in EL.
  * @author Ian Tsai
  */
-public class JspFactoryContextListener implements ServletRequestListener {	
-	
+public class JspFactoryContextListener implements ServletContextListener {	
+
 	static volatile boolean hasInitiated = false;
 	
-	public void requestDestroyed(ServletRequestEvent servRequestEvt) {		
+	public void contextDestroyed(ServletContextEvent event) {
 	}
 
-	public void requestInitialized(ServletRequestEvent servRequestEvt) {
-	/* find out if this container is Jsp2.1 container .
-	 * 1. Find out if interface JspApplicationContext(Since JSP 2.1) is exist.
-	 * 2. If so, use v21 JspFactory
-	 */
+	public void contextInitialized(ServletContextEvent event) {
+		/* find out if this container is Jsp2.1 container .
+		 * 1. Find out if interface JspApplicationContext(Since JSP 2.1) is exist.
+		 * 2. If so, use v21 JspFactory
+		 */
 		if (hasInitiated) return;
 		try {
-			 
 			Classes.forNameByThread("javax.servlet.jsp.JspApplicationContext");
 			
 			Class<?> initorClass = getClassObject("org.zkoss.jsp.spec.v21.ZkELInitiatorImpl");
 			
 			ZkELInitiator initiator = (ZkELInitiator) initorClass.newInstance();
 			
-			initiator.init(servRequestEvt.getServletContext());
+			initiator.init(event.getServletContext());
 			
 		} catch (ClassNotFoundException e) {
 			throw new SystemException("Since version 2.3, ZK JSP EL Context adoption support only compatible with JSP 2.1+ ", e);
