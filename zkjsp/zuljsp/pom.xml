@@ -5,9 +5,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.zk</groupId>
 	<artifactId>zuljsp</artifactId>
-	<version>2.3</version>
+	<version>2.4-SNAPSHOT</version>
 	<properties>
-		<zk.version>6.5.2-SNAPSHOT</zk.version>
+		<zk.version>7.0.0</zk.version>
 		<commons-lang.version>2.4</commons-lang.version>
 		<commons-io.version>2.1</commons-io.version>
 		<commons-fileupload.version>1.2.2</commons-fileupload.version>
@@ -24,13 +24,17 @@
 		</license>
 	</licenses>
 	<scm>
-		<url>http://svn.sourceforge.net/viewvc/zk1/releases/1.5/zuljsp</url>
+		<url>https://zkjsp.googlecode.com/svn/trunk/zkjsp/zuljsp</url>
 	</scm>
 	<repositories>
 		<repository>
 			<id>zk repository</id>
 			<url>http://mavensync.zkoss.org/maven2</url>
 		</repository>
+		<repository>
+			<id>ZK-EE eval</id>
+			<url>http://mavensync.zkoss.org/eval/</url>
+		</repository>		
 	</repositories>
 	<dependencies>
 	
