@@ -286,8 +286,11 @@
 										<z:ui tag="hp-link"
 										url="./test/bug/zkjsp-11.jsp" label="zkjsp-11.jsp" />
 								</z:row>
-								
-								<%-- ***** add new test case here! ***** --%>
+								<z:row>
+									<z:ui tag="hp-link" url="./test/navigation.jsp"
+										label="navigation.jsp" />
+								</z:row>
+										<%-- ***** add new test case here! ***** --%>
 								</z:rows>
 							</z:grid>
 						</z:tabpanel>
