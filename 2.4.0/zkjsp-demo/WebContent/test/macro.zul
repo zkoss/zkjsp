@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid id="mc_grid">
+	<columns>
+		<column label="name"/>
+		<column label="value"/>
+	</columns>
+	<rows>
+		<row id="r">
+			${empty arg.label ? 'Username': arg.label}
+			<textbox value="${empty arg.text ? 'Username': arg.text}"/>
+		</row>
+	</rows>
+</grid>

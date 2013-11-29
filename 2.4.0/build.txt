@@ -1,0 +1,299 @@
+
+
+
+2013-01-28 [Ian Tsai wrote:] pre Release Build check:
+
+In order to build an Official Release of Zk JSP, you have to:
+
+	1. check every "version" setting in these files:
+			/trunk/zkjsp/build.setting
+			/trunk/zkjsp/zkdoc/zkjsp-release-note
+			/trunk/zkjsp/zuljsp/pom.xml
+			/trunk/zkjsp/zuljsp/src/archive/META-INF/MANIFEST.MF
+			/trunk/zkjsp/zuljsp/src/archive/META-INF/zuljsp.tld
+			/trunk/zkjsp/zuljsp/src/org/zkoss/jsp/Version.java
+			/trunk/zkjsp/zuljsp/src/archive/META-INF/zweb.core.dsp.tld
+			/trunk/zkjsp/zuljsp/version
+
+		please make sure the "-FL" is removed from: /trunk/zkjsp/build.setting when you do official release, and don't forget to put it back after release and version has been accumulated.
+
+
+	2. Build Command execution sequesnce
+		./build clean
+			to clean up all temporary folders and built files
+		./build
+			build zuljsp.jar
+		./build doc
+			build the javadoc for ZK JSP
+			will create a folder under: [cygwin_HD_drive]/home/[user_name]/prj/javadoc/zuljsp
+		./sub-release JspTags official
+			build 3 zips for ZK JSP: bin, src and demo package under: [cygwin_root]/tmp/zk/
+
+
+
+
+
+
+
+
+build - a tool to build or clean up Java projects
+Copyright (C) 2001-2004 Potix Corporation. All Rights Reserved.
+
+Usage:
+  build [command] [a=b] [project...]
+
+Commands:
+	help           show this message
+	build.debug    build the debug version (default)
+	build.release  build the release version (br: shortcut)
+	clean          clean up both debug and release
+	clean.debug    clean up the debug versin (cd: shortcut)
+	clean.release  clean up the debug versin (cr: shortcut)
+	utest.debug    unit-test the debug version (ud: shortcut)
+	utest.release  unit-test the release version (ur: shortcut)
+	javadoc        generates javadoc (doc: shortcut)
+	verbose        make ant in verbose mode
+	continue       allow unit test to continue even encountering failures
+	unzip          unzip ear/war into the deploy directory (as if unzip=true is specified)
+	a=b            any pair of definitions. It is useful to control unit test.	
+
+Notes:
+	* If no project specified, all projects in targetList are processed.
+	* If no command specified, build.debug is assumed.
+	* All arguments are case-sensitive
+	* Projects cannot be named with any space
+	* noear, verbose and continue, if specified, must be the first
+	  arguments, and the sequence is important.
+
+----------
+Files located under .:
+----------
+build.setting or build.setting.local
+	Controls how to build. build.setting is ignored if build.setting.local
+	exists. build.setting is part of SVN, while buil.setting.local is not.
+	D.ON=true or D.ON=false
+		Controls whether to turn on D.ON
+	javadoc=~/prj/javadoc
+		Specifies where to store Java apidocs.
+	zipjs=true
+		Optional. Default false.
+		Controls whether to compress the JavaScript files.
+		Note: a JavaScript file is compress only if zipjs=true AND
+		it matches zipjs specified in the deploy file
+	unzip=true
+		Optional. Default: false.
+		Controls whether to unzip files when deploying ear/war.
+		The files to unzip are specified in the deploy file (see below)
+		This flag cannot be overriden by specify the unzip command (see above)
+	debug=false
+		Optinal. Default: true if and only if D.ON is true
+		Controls whether to generate debug info.
+	optimize=true
+		Optinal. Default: true if and only if D.ON is false
+		Controls whether to optimize code generation.
+
+MANIFEST.MF (Must)
+	Used if the project doesn't contain MANIFEST.MF
+
+----------
+Files located under the project directory:
+----------
+classpath
+	Secifies the classpath to run ant.
+	NOTE: it must be Unix format, i.e., separated by ':'
+
+version
+	Specifies the version (only first line is used)
+
+format
+	Specifies the resulted archive's format. It must be specified.
+ 	ear
+ 		The result archive is an ear.
+ 	jar
+ 		The result archive is a jar.
+ 		NOTE: Only src/archive/META-INF and src/archive/metainfo is included!
+ 	war
+ 		The result archive is a war.
+ 		NOTE: src/archive/META-INF and src/arhive/metainfo is excluded!
+
+deploy (Optional)
+	Specifies how to deploy the result. If omitted, no deployment occurs.
+ 	lib
+ 		Deploy the result to dist/lib as a shared library.
+ 		They are copied to server's lib if specified in server.libs.
+ 		They are merged to ear if specified in earlib.libs.
+ 	server
+ 		Deploy the result to a server as a bean or web container.
+ 		You must also specify a line:
+ 			app=YourAppName
+
+ 		When deploying to server, you could place an extra line in this file
+ 		if you want	to unzip ear into the deploy directory:
+ 			unzip=true
+ 		or
+ 			unzip=we.jar,we.war
+ 		Notice: this unzip option is enabled only if build.release is targeted
+ 		or unzip=true is found in build.setting.local.
+
+war.libs (Optional)
+	Specifies a list of libraries (one per line) under dist/lib/ext that
+	shall be packed to the result war (format must be war).
+
+server.libs (Optional)
+	Specifies a list of libraries (one per line) under dist/lib and
+	dist/lib/ext that shall be copied to the server's lib directory.
+	Used only deploy: server.
+
+ear.libs (Optional)
+	Specifies A list of libraries (one per line) under dist/lib
+	or dist/lib/ext that shall be packed to the result ear (format must be ear).
+	Used only if format: ear.
+
+import.libs (Optional)
+	Specifies a list of files (one per line) under dist/export that
+	shall be packed to the result war (format must be war).
+	Note: dist/export is generated if a project contains src/export.
+
+cactus.properties (Must if Web-based Unit Test)
+	Specifies the information required by web-based unit test codes.
+
+class.test.local (Optional)
+ 	Specifies a list of classes (one per line) that the unit test must
+ 	test. If no classes specified at all, all classes registered in all
+ 	AllTests.java files are tested.
+
+	
+#============================================ 20130125 Ben
+
+0.
+NOTE: if you want add some thing about the main zk project,
+add them in package org.zkoss.jsp.zul.impl under zuljsp/src
+
+1.
+environment
+http://matter:7070/mediawiki13/index.php/ZK-Cygwin
+
+2.
+checkout full addon to D:/home/benbai/prj
+addon SVN:
+https://svn.potix.com/svn/zk1/addon
+
+3.
+open cygwin, mount home directory
+[code]
+mount d:\\home /home
+[/code]
+
+4.
+enter addon/trunk/zkjsp
+[code]
+cd prj/addon/trunk/zkjsp
+[/code]
+
+5.
+build jar
+(if its a official release, 
+change build.setting file
+version=1.6-FL
+to
+version=1.6 first)
+
+execute:
+[code]
+./build clean; ./build
+[/code]
+
+6.
+build javadoc
+[code]
+./build doc
+[/code]
+
+7.
+build sub-release
+[code]
+./sub-release JspTags
+[/code]
+or official release
+[code]
+./sub-release JspTags official
+[/code]
+
+then the three freshly files will under C:\cygwin\tmp\zk,
+such as
+zk-JspTags-bin-1.6-FL-2011-05-11.zip
+zk-JspTags-demo-1.6-FL-2011-05-11.zip
+zk-JspTags-src-1.6-FL-2011-05-11.zip
+
+then can upload them to sourceforge as need
+
+############################################
+########## official release only below
+########## also check http://matter:7070/mediawiki13/index.php/ZK-Routine-Release-Official
+deploy zk-JspTags-demo into server ( it has a war file )
+test the demo cases
+
+upload three zip to sourceforge
+[url]
+https://sourceforge.net/projects/zk1/files/ZK%20JSP%20Tags/
+[/url]
+
+notify Tim the links ( also, concall Jimmy and Nancy )
+
+check C:\cygwin\tmp\maven\zuljsp-xx-bundle.jar
+1.
+version number of "bundle.jar" and the "source.jar" in it should the same,
+for example, there should a "zuljsp-1.6-source.jar" in "zuljsp-1.6-bundle.jar"
+2.
+the <version>1.6</version> attribute in pom.xml in bundle.jar
+should equal to the version number of bundle.jar
+3.
+check zk version in pom.xml in bundle.jar
+<zk.version>3.0.0</zk.version>
+
+go to internal file server 
+[url]
+\\fileserver\potix\rd\zuljsp\release
+[/url]
+
+copy zk and maven files under C:\cygwin\tmp into it
+[files]
+\maven\zuljsp-1.6-bundle.jar
+\zk\zk-JspTags-bin-1.6.zip
+\zk\zk-JspTags-demo-1.6.zip
+\zk\zk-JspTags-src-1.6.zip
+[/files]
+
+tell MIS have to do a branche,
+[to mis]
+hi, mis
+zkjsp has released today
+please do a branche
+branche version is 1.6
+position is
+https://svn.potix.com/svn/zk1/addon/trunk/zkjsp
+https://svn.potix.com/svn/zk1/addon/releases/zkjsp
+[/to mis]
+
+after released, notice the bugs about zuljsp one week,
+then upgrade version number
+check SVN log of file "build.setting" under
+"D:\home\benbai\prj\addon\trunk\zkjsp" for detail
+( the log message maybe like "upgrade version to 1.6" )
+
+also check SVN log of file "zkjsp-release-note" under
+"D:\home\benbai\prj\addon\trunk\zkjsp\zkdoc" for detail
+( the log message maybe like "update ZK JSP version from 1.4.1 to 1.4.2" )
+
+currently files to update version (if exists):
+/trunk/zkjsp/build.setting
+/trunk/zkjsp/zkdoc/zkjsp-release-note
+/trunk/zkjsp/zuljsp/pom.xml
+/trunk/zkjsp/zuljsp/src/archive/META-INF/MANIFEST.MF
+/trunk/zkjsp/zuljsp/src/archive/META-INF/zuljsp.tld
+/trunk/zkjsp/zuljsp/src/org/zkoss/jsp/Version.java
+/trunk/zkjsp/zuljsp/src2/archive/META-INF/MANIFEST.MF
+/trunk/zkjsp/zuljsp/src2/archive/META-INF/zuljsp.tld
+/trunk/zkjsp/zuljsp/src2/archive/META-INF/zweb.core.dsp.tld
+/trunk/zkjsp/zuljsp/version
+/trunk/zkjsp/zuljsp/src2/archive/metainfo/zk/lang-addon.xml
