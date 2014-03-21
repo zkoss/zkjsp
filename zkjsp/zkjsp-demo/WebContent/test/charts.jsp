@@ -10,7 +10,7 @@
 <body>
 	<h1>Test ZK 7 Charts</h1>
 	<z:page>
-		<z:window >
+		<z:window apply="org.zkoss.jspdemo.charts.ChartsComposer">
 			<z:charts id="chart" type="line" title="Monthly Average Temperature"
 				subtitle="Source: WorldClimate.com" />
 		</z:window>
