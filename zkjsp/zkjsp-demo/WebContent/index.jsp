@@ -288,7 +288,11 @@
 								</z:row>
 								<z:row>
 									<z:ui tag="hp-link" url="./test/navigation.jsp"
-										label="navigation.jsp" />
+										label="navigation" />
+								</z:row>
+								<z:row>
+									<z:ui tag="hp-link" url="./test/charts.jsp"
+										label="charts" />
 								</z:row>
 										<%-- ***** add new test case here! ***** --%>
 								</z:rows>
