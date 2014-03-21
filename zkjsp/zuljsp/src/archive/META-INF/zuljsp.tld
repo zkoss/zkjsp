@@ -20,7 +20,7 @@ Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 	<description>
 	The JSP Tags for ZK XUL Components
 	</description>
-	<tlib-version>2.4</tlib-version>
+	<tlib-version>2.5</tlib-version>
 	<short-name>zuljsp</short-name>
 	<uri>http://www.zkoss.org/jsp/zul</uri>
 	
@@ -6402,4 +6402,46 @@ Currently, it supports xul/html and xhtml.
 		<dynamic-attributes>true</dynamic-attributes>
 	</tag>	
 	<!-- Functions -->
+	<!-- ZK Charts  -->
+	<tag>
+		<description>
+			Define the Charts comonent.
+		</description>
+		<name>charts</name>
+		<tag-class>org.zkoss.jsp.zul.ChartsTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<description>
+				If false, this tag is ignored. Default: true.
+			</description>
+			<name>if</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				If true, this tag is ignored. Default: false.
+			</description>
+			<name>unless</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Default : Zul Component Charts.
+			</description>
+			<name>use</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Used to forward Event, same as ZUL's forward.
+			</description>
+			<name>forward</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>		
 </taglib>
