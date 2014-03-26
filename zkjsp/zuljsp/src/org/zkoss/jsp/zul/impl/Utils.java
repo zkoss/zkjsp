@@ -19,19 +19,15 @@ Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 package org.zkoss.jsp.zul.impl;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.ArrayList;
-import java.util.Map;
 import java.io.Writer;
 import java.io.IOException;
 
 import org.zkoss.lang.Objects;
-
+import org.zkoss.lang.reflect.Fields;
 import org.zkoss.zk.ui.Page;
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.metainfo.ZScript;
-import org.zkoss.zk.ui.sys.PageCtrl;
 
 /**
  * A utility to be shared by {@link BranchTag} and {@link RootTag} to
@@ -80,8 +76,17 @@ import org.zkoss.zk.ui.sys.PageCtrl;
 					else
 						inl.setPageBefore(page, child);
 				} else {
-					if (parent != null)
-						parent.appendChild(inl);
+					if (parent != null) {
+						final String textAs = parent.getDefinition().getTextAs();
+						if (textAs != null) {
+							try {
+								Fields.set(parent, textAs, inl.getContent(), false);
+							} catch (NoSuchMethodException e) {
+								e.printStackTrace();
+							} 
+						} else
+							parent.appendChild(inl);
+					}
 					else
 						inl.setPage(page);
 				}

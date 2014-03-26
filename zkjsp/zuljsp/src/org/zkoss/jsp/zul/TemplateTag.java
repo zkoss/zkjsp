@@ -19,7 +19,9 @@ Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 package org.zkoss.jsp.zul;
 
 import java.io.IOException;
+import java.io.StringWriter;
 import java.util.Map;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.DynamicAttributes;
 import javax.servlet.jsp.tagext.JspTag;
@@ -28,85 +30,70 @@ import org.zkoss.jsp.zul.impl.AbstractTag;
 import org.zkoss.jsp.zul.impl.BranchTag;
 import org.zkoss.lang.CommonException;
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.impl.JSPUiEngineImpl.TemplateImpl;
+import org.zkoss.zk.ui.metainfo.PageDefinition;
+import org.zkoss.zk.ui.metainfo.TemplateInfo;
 
 /**
- * A Jsp Tag class to handle the zscript element.
- * This tag should be declared under {@link PageTag} or any Component tags.
+ * A Jsp Tag class to handle the template element.
  * 
- * @author Ian Tsai 
+ * @author jumperchen
  */
 public class TemplateTag extends AbstractTag implements DynamicAttributes {
 	private BranchTag _parent;
+	private StringBuilder _attrs = new StringBuilder();
 	private String _name;
 
-	/**
-	 * 
-	 * if this "attribute" represents a event Add self contents to parent's dynamic attribute.
-	 *  
-	 *   
-	 */
 	public void doTag() throws JspException, IOException {
-		throw new UnsupportedOperationException("please use jsp template instead");
+		if (!isEffective())
+			return;
+		if (_parent != null) {
+
+			final StringWriter out = new StringWriter();
+			if (getJspBody() != null)
+				getJspBody().invoke(out);
+
+			String result = out.toString();
+			int start = result.indexOf("<");
+			int end = result.indexOf(":");
+			if (end < start) {
+				throw new IllegalArgumentException("The template syntax may be wrong :[" + result + "]");
+			}
+			String prefix = result.substring(start + 1, end + 1);
+			if (prefix.contains(" ")) {
+				throw new IllegalArgumentException("The template syntax may be wrong :[" + result + "]");
+			}
+			result = result.replace(prefix, "");
+			String tmp = "<template " + _attrs.toString() + ">";
+			PageDefinition pageDefinitionDirectly = Executions.getCurrent()
+					.getPageDefinitionDirectly(tmp + result + "</template>", "zul");
+			_parent.getComponent().setTemplate(
+					_name,
+					new TemplateImpl((TemplateInfo) pageDefinitionDirectly.getChildren().iterator().next(), _parent
+							.getComponent()));
+		}
 	}
 
-	//SimpleTagSupport//
-	/** Sets the parent tag.
-	 * Deriving class rarely need to invoke this method.
+	// SimpleTagSupport//
+	/**
+	 * Sets the parent tag. Deriving class rarely need to invoke this method.
 	 */
 	public void setParent(JspTag parent) {
 		super.setParent(parent);
 		if (parent instanceof BranchTag) {
-			_parent = (BranchTag)parent;
+			_parent = (BranchTag) parent;
 		} else {
-			throw new IllegalJspTagException("Parent tag is not a valid ZK container Tag: "+this);
+			throw new IllegalJspTagException(
+					"Parent tag is not a valid ZK container Tag: " + this);
 		}
 	}
-	public void setName (String name) {
-		_name = name;
-	}
-	public String getName () {
-		return _name;
-	}
-	/**
-	 * 
-	 * Evaluate all attributes.
-	 * If(is annotations)
-	 * @param target the target component
-	 * @param attrs
-	 * @throws ModificationException
-	 * @throws NoSuchMethodException
-	 */
-	protected void evaluateDynaAttributes(Component target, Map attrs) 
-	throws CommonException, NoSuchMethodException{
 
-	}
-	/**
-	 * Test if the attribute are annotation or component attribute.<br>
-	 * If(is Component attribute)Invokes setter method to update all 
-	 * assigned attribute.
-	 * If(is annotation)
-	 * @param target
-	 * @param attnm
-	 * @param value
-	 * @throws ModificationException
-	 * @throws NoSuchMethodException
-	 */
-	public static void evaluateDynaAttribute(Component target, String attnm, Object value)
-	throws CommonException, NoSuchMethodException
-	{
-		
-	}
-	
-	/**
-	 *   Called when a tag declared to accept dynamic attributes is passed an 
-	 *   attribute that is not declared in the Tag Library Descriptor.<br>
-	 *   
-	 * @param uri the namespace of the attribute, always null currently.
-	 * @param localName the name of the attribute being set.
-	 * @param value  the value of the attribute
-	 */
-	public void setDynamicAttribute(String uri, String localName, Object value) 
-	throws JspException {
-		
+	public void setDynamicAttribute(String uri, String localName, Object value)
+			throws JspException {
+		_attrs.append(localName).append("=\"").append(value).append("\" ");
+		if ("name".equals(localName)) {
+			_name = value.toString();
+		}
 	}
 }
