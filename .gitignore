@@ -1,3 +1,5 @@
 zkjsp/zkjsp-demo/build
 *.class
 target
+zkjsp/zuljsp/debug/*
+zkjsp/zuljsp/codegen/*

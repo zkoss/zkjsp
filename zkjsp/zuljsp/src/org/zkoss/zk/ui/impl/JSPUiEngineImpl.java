@@ -21,8 +21,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.zkoss.lang.Classes;
 import org.zkoss.lang.Library;
 import org.zkoss.lang.Objects;
@@ -77,7 +75,6 @@ import org.zkoss.zk.xel.Evaluators;
  * @see UiEngineImpl
  */
 public class JSPUiEngineImpl {
-	private static final Logger log = LoggerFactory.getLogger(JSPUiEngineImpl.class);
 	private volatile Extension _ext;
 
 	// Supporting Classes//
@@ -138,7 +135,7 @@ public class JSPUiEngineImpl {
 					try {
 						((DesktopCtrl) exec.getDesktop()).removePage(page);
 					} catch (Throwable ex) {
-						log.warn("", ex);
+//						log.warn("", ex);
 					}
 					((PageCtrl) page).destroy();
 				}
@@ -186,7 +183,7 @@ public class JSPUiEngineImpl {
 							_ext = (Extension) Classes
 									.newInstanceByThread(clsnm);
 						} catch (Throwable ex) {
-							log.error("Unable to instantiate " + clsnm, ex);
+//							log.error("Unable to instantiate " + clsnm, ex);
 						}
 					}
 					if (_ext == null)
@@ -395,7 +392,7 @@ public class JSPUiEngineImpl {
 				try {
 					ignore = composerExt.doCatch(ex);
 				} catch (Throwable t) {
-					log.error("Failed to invoke doCatch for " + childInfo, t);
+//					log.error("Failed to invoke doCatch for " + childInfo, t);
 				}
 			}
 			if (!ignore) {
