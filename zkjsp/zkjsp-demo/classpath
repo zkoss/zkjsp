@@ -10,3 +10,4 @@
 ../dist/lib/ext/jsp-api.jar
 ../dist/lib/ext/el-api.jar
 ../dist/lib/ext/servlet-api.jar
+../dist/lib/zkcharts.jar
