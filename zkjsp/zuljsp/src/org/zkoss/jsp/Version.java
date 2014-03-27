@@ -21,5 +21,5 @@ package org.zkoss.jsp;
 public class Version {
 	/** The version UID used to identify the resources.
 	 */
-	public static final String UID = "2.5.0";
+	public static final String UID = "2.6.0-FL";
 }
