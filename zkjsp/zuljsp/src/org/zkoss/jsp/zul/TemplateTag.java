@@ -20,20 +20,14 @@ package org.zkoss.jsp.zul;
 
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.Map;
-
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.DynamicAttributes;
 import javax.servlet.jsp.tagext.JspTag;
 
 import org.zkoss.jsp.zul.impl.AbstractTag;
 import org.zkoss.jsp.zul.impl.BranchTag;
-import org.zkoss.lang.CommonException;
-import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
-import org.zkoss.zk.ui.impl.JSPUiEngineImpl.TemplateImpl;
-import org.zkoss.zk.ui.metainfo.PageDefinition;
-import org.zkoss.zk.ui.metainfo.TemplateInfo;
+import org.zkoss.zk.ui.sys.WebAppCtrl;
 
 /**
  * A Jsp Tag class to handle the template element.
@@ -65,13 +59,12 @@ public class TemplateTag extends AbstractTag implements DynamicAttributes {
 				throw new IllegalArgumentException("The template syntax may be wrong :[" + result + "]");
 			}
 			result = result.replace(prefix, "");
-			String tmp = "<template " + _attrs.toString() + ">";
-			PageDefinition pageDefinitionDirectly = Executions.getCurrent()
-					.getPageDefinitionDirectly(tmp + result + "</template>", "zul");
-			_parent.getComponent().setTemplate(
-					_name,
-					new TemplateImpl((TemplateInfo) pageDefinitionDirectly.getChildren().iterator().next(), _parent
-							.getComponent()));
+			String tmp = "<template " + _attrs.toString() + ">"+ result + "</template>";
+			
+			((WebAppCtrl) _parent.getComponent().getDesktop().getWebApp()).getUiEngine()
+				.createComponents(Executions.getCurrent(), Executions.getCurrent()
+						.getPageDefinitionDirectly(tmp , "zul"), null,
+					_parent.getComponent(), null, null, null);
 		}
 	}
 
