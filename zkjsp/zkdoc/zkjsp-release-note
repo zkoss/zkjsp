@@ -4,6 +4,7 @@ JSP Tags 2.6.0
     ZKJSP-19: Label and LabelElement component support inline text value as zul syntax.
 * Bugs:  
     ZKJSP-18: template tag is not supported as zk jsp tag
+    ZKJSP-20: Problems with maven dependencies
 
 JSP Tags 2.5.0
 * Features:
