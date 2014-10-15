@@ -1,4 +1,10 @@
 	--------
+JSP Tags 2.7.0
+* Features:
+
+* Bugs:
+
+	--------
 JSP Tags 2.6.0
 * Features:
     ZKJSP-19: Label and LabelElement component support inline text value as zul syntax.
