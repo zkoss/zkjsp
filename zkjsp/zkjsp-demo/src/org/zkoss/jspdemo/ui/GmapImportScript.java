@@ -28,7 +28,7 @@ public class GmapImportScript extends Script implements AfterCompose {
 		{			
 			
 			this.setContent("zk.googleAPIkey='"+gmapKey+"'");//for zk 5
-			this.setType("text/javascript");
+			//this.setType("text/javascript");
 		}
 	}
 	

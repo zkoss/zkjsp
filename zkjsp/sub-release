@@ -154,13 +154,13 @@ cd /tmp/zk
 echo Output ${binnm}.zip
 zip -qr9 ${binnm}.zip $binnm
 
-if [ "$target" == "official" ] ; then
+#if [ "$target" == "official" ] ; then
 	#Prepare maven repository
 	function mvnrepo {
 		echo "Create $1-$ver-bundle.jar"
 		mkdir -p $1
 		mv /tmp/zk/$binnm/dist/src/$1-sources.jar $1/$1-$ver-sources.jar
-+		sed -e "/version/s/-SNAPSHOT//" $maindir/$1/pom.xml > $1/pom.xml
+		sed -e "/version/s/-SNAPSHOT//" $maindir/$1/pom.xml > $1/pom.xml
 		cp $maindir/dist/lib/$1.jar $1/$1-$ver.jar
 		# should change mode to make sure it is accessable
 		# or sometimes will cause 'access denied' problem
@@ -174,7 +174,7 @@ if [ "$target" == "official" ] ; then
 	mv *-bundle.jar /tmp/maven
 	cd ..
 	rm -rf maven
-fi
+#fi
 cd /tmp/zk
 rm -rf $binnm
 
